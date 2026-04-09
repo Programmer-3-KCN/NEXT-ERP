@@ -1,11 +1,29 @@
 import type { Metadata } from "next";
 
+import { registerLicense } from "@syncfusion/ej2-base";
 import { FC, PropsWithChildren, ReactElement } from "react";
 
+import "../../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-buttons/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-calendars/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-dropdowns/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-grids/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-inputs/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-navigations/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-popups/styles/tailwind3.css";
+import "../../node_modules/@syncfusion/ej2-react-splitbuttons/styles/tailwind3.css";
 import { APIConnectionChecker } from "../components";
 import { NextAuthProvider, NextThemesProvider, ReactQueryProvider } from "../libs";
 import { geistMono, geistSans, inter, roboto } from "./fonts";
 import "./globals.css";
+
+const SYNCFUSION_LICENSE = process.env.NEXT_PUBLIC_SYNCFUSION_LICENSE_KEY;
+
+if (!SYNCFUSION_LICENSE) {
+  throw new Error("The Syncfusion license key is not defined. Please check your environment variables.");
+}
+
+registerLicense(SYNCFUSION_LICENSE);
 
 export const metadata: Metadata = {
   authors: [{ name: "Gede Dewo Wahyu M.W", url: "https://github.com/gdwmw" }],

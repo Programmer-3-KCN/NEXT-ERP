@@ -6,18 +6,30 @@
       "name": "nextjs",
       "dependencies": {
         "@hookform/resolvers": "^5.2.2",
-        "@tanstack/react-query": "^5.95.2",
-        "axios": "^1.13.6",
+        "@syncfusion/ej2-base": "^33.1.45",
+        "@syncfusion/ej2-react-base": "^33.1.44",
+        "@syncfusion/ej2-react-buttons": "^33.1.44",
+        "@syncfusion/ej2-react-calendars": "^33.1.44",
+        "@syncfusion/ej2-react-charts": "^33.1.47",
+        "@syncfusion/ej2-react-dropdowns": "^33.1.47",
+        "@syncfusion/ej2-react-grids": "^33.1.47",
+        "@syncfusion/ej2-react-inputs": "^33.1.47",
+        "@syncfusion/ej2-react-navigations": "^33.1.47",
+        "@syncfusion/ej2-react-popups": "^33.1.44",
+        "@syncfusion/ej2-react-splitbuttons": "^33.1.44",
+        "@tanstack/react-query": "^5.97.0",
+        "axios": "^1.15.0",
         "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
-        "next": "^16.2.1",
+        "lucide-react": "^1.8.0",
+        "next": "^16.2.3",
         "next-auth": "^4.24.13",
         "next-themes": "^0.4.6",
         "plaiceholder": "^3.0.0",
-        "react": "^19.2.4",
+        "react": "^19.2.5",
         "react-datepicker": "^9.1.0",
-        "react-dom": "^19.2.4",
-        "react-hook-form": "^7.72.0",
+        "react-dom": "^19.2.5",
+        "react-hook-form": "^7.72.1",
         "react-hotkeys-hook": "^5.2.4",
         "react-icons": "^5.6.0",
         "react-intersection-observer": "^10.0.3",
@@ -29,38 +41,38 @@
       "devDependencies": {
         "@commitlint/cli": "^20.5.0",
         "@commitlint/config-conventional": "^20.5.0",
-        "@storybook/addon-themes": "^10.3.3",
-        "@storybook/nextjs-vite": "^10.3.3",
+        "@storybook/addon-themes": "^10.3.5",
+        "@storybook/nextjs-vite": "^10.3.5",
         "@tailwindcss/postcss": "^4.2.2",
-        "@tanstack/eslint-plugin-query": "^5.95.2",
+        "@tanstack/eslint-plugin-query": "^5.97.0",
         "@testing-library/jest-dom": "^6.9.1",
         "@testing-library/react": "^16.3.2",
         "@types/jest": "^30.0.0",
-        "@types/node": "^25.5.0",
+        "@types/node": "^25.5.2",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
         "commitizen": "^4.3.1",
         "cz-git": "^1.12.0",
         "eslint": "^9.39.4",
-        "eslint-config-next": "^16.2.1",
+        "eslint-config-next": "^16.2.3",
         "eslint-plugin-better-tailwindcss": "^4.3.2",
         "eslint-plugin-jest": "^29.15.1",
-        "eslint-plugin-perfectionist": "^5.7.0",
+        "eslint-plugin-perfectionist": "^5.8.0",
         "eslint-plugin-react": "^7.37.5",
-        "eslint-plugin-storybook": "^10.3.3",
+        "eslint-plugin-storybook": "^10.3.5",
         "husky": "^9.1.7",
         "jest": "^30.3.0",
         "jest-environment-jsdom": "^30.3.0",
         "lint-staged": "^16.4.0",
-        "postcss": "^8.5.8",
+        "postcss": "^8.5.9",
         "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",
-        "storybook": "^10.3.3",
+        "storybook": "^10.3.5",
         "tailwindcss": "^4.2.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.9.3",
-        "typescript-eslint": "^8.57.2",
-        "vite": "^7.3.1",
+        "typescript-eslint": "^8.58.1",
+        "vite": "^7.3.2",
       },
     },
   },
@@ -516,6 +528,64 @@
     "@storybook/react-vite": ["@storybook/react-vite@10.3.5", "", { "dependencies": { "@joshwooding/vite-plugin-react-docgen-typescript": "^0.7.0", "@rollup/pluginutils": "^5.0.2", "@storybook/builder-vite": "10.3.5", "@storybook/react": "10.3.5", "empathic": "^2.0.0", "magic-string": "^0.30.0", "react-docgen": "^8.0.0", "resolve": "^1.22.8", "tsconfig-paths": "^4.2.0" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "storybook": "^10.3.5", "vite": "^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0" } }, "sha512-UB5sJHeh26bfd8sNMx2YPGYRYmErIdTRaLOT28m4bykQIa1l9IgVktsYg/geW7KsJU0lXd3oTbnUjLD+enpi3w=="],
 
     "@swc/helpers": ["@swc/helpers@0.5.15", "", { "dependencies": { "tslib": "^2.8.0" } }, "sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g=="],
+
+    "@syncfusion/ej2-base": ["@syncfusion/ej2-base@33.1.45", "", { "dependencies": { "@syncfusion/ej2-icons": "~33.1.44" }, "bin": { "syncfusion-license": "bin/syncfusion-license.js" } }, "sha512-gMSnS0nH+9udFsKer99RcDiIvHIk+JtJ9bQfaW35CoQgB/hDcqganxwsHVeVUAiDThp+rzxhuaiUGUQ00fN1Gw=="],
+
+    "@syncfusion/ej2-buttons": ["@syncfusion/ej2-buttons@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44" } }, "sha512-YNrvcsqrpLeeR6iwfYMr8fIWZ9TDYSWILywcygac9F/EgVV3dUSRTYW8U4rERo92BZLbDvkMjPx7u1XU7nRCsA=="],
+
+    "@syncfusion/ej2-calendars": ["@syncfusion/ej2-calendars@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-buttons": "~33.1.44", "@syncfusion/ej2-inputs": "~33.1.44", "@syncfusion/ej2-lists": "~33.1.44", "@syncfusion/ej2-popups": "~33.1.44" } }, "sha512-pMu+JxXysjied8XyjwIPH12I1tdmYsw5UYMhwt2ONYj3d8XznkV3WsSqUx4L3ap/2C8E8cZCPJcCaSFl/Re9ew=="],
+
+    "@syncfusion/ej2-charts": ["@syncfusion/ej2-charts@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-calendars": "~33.1.44", "@syncfusion/ej2-data": "~33.1.45", "@syncfusion/ej2-excel-export": "~33.1.44", "@syncfusion/ej2-navigations": "~33.1.47", "@syncfusion/ej2-pdf-export": "~33.1.44", "@syncfusion/ej2-svg-base": "~33.1.44" } }, "sha512-wtSQMbJFudiNJHZ7nTwJBOMjxmwvcI1LJNp9Mf2ojlU3iscfd8YbDSExnTbXkh63jMs5nocgFQgnJ99zx3+PhA=="],
+
+    "@syncfusion/ej2-compression": ["@syncfusion/ej2-compression@33.1.44", "", { "dependencies": { "@syncfusion/ej2-file-utils": "~33.1.44" } }, "sha512-QXXhgIYxgBMEKGHN6jegfmvJIWgayuNT1XdvKrtDE38KAphN0yO6mtjDemhmtQRQzqSY9f9xeeU8XaDtGCwOMA=="],
+
+    "@syncfusion/ej2-data": ["@syncfusion/ej2-data@33.1.45", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45" } }, "sha512-zIFC6Nl/PE+eVBd+8w4LaJhrpEXAakbSRxgsNctsqrMxoDidOH7MIpLFy/cEXVKanAF7nbeYItkVGcjLCLtLow=="],
+
+    "@syncfusion/ej2-dropdowns": ["@syncfusion/ej2-dropdowns@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-data": "~33.1.45", "@syncfusion/ej2-inputs": "~33.1.47", "@syncfusion/ej2-lists": "~33.1.47", "@syncfusion/ej2-navigations": "~33.1.47", "@syncfusion/ej2-notifications": "~33.1.44", "@syncfusion/ej2-popups": "~33.1.44" } }, "sha512-GBtwFnWR/VtTCGSflLXb+6WEAJQMC+yH1ktnqT47EMh0yy6JgIHkS4e6Mkhc/NP7nwHJV7X97/2waRYASmG6GQ=="],
+
+    "@syncfusion/ej2-excel-export": ["@syncfusion/ej2-excel-export@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-compression": "~33.1.44" } }, "sha512-9C0qYmVXkxSGJJ5SjcXWHsTEOeS7LIVer30BpgpiulpVv8wbgTbwcozYvPNCf1N2N805v5qOga0Ts7e0lMKMxA=="],
+
+    "@syncfusion/ej2-file-utils": ["@syncfusion/ej2-file-utils@33.1.44", "", {}, "sha512-CJxfNLbdLvSiV+ppsjJrqXx3PxGcjjfnD7D5Oi5JS7ss9j5o8KBE+oR+70yTEdW87Z5+CQVND3qVbUnrCOiO3Q=="],
+
+    "@syncfusion/ej2-grids": ["@syncfusion/ej2-grids@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-buttons": "~33.1.44", "@syncfusion/ej2-calendars": "~33.1.44", "@syncfusion/ej2-compression": "~33.1.44", "@syncfusion/ej2-data": "~33.1.45", "@syncfusion/ej2-dropdowns": "~33.1.47", "@syncfusion/ej2-excel-export": "~33.1.44", "@syncfusion/ej2-file-utils": "~33.1.44", "@syncfusion/ej2-inputs": "~33.1.47", "@syncfusion/ej2-lists": "~33.1.47", "@syncfusion/ej2-navigations": "~33.1.47", "@syncfusion/ej2-notifications": "~33.1.44", "@syncfusion/ej2-pdf-export": "~33.1.44", "@syncfusion/ej2-popups": "~33.1.44", "@syncfusion/ej2-splitbuttons": "~33.1.44" } }, "sha512-RNxmOTDr37FbqVCBuD4Ln9W8wzOFoMURcOBXUP6v5F0ptWegbdANvcnDf3SHnKHMVN3ZUAMpdEL6nBh8usVz/w=="],
+
+    "@syncfusion/ej2-icons": ["@syncfusion/ej2-icons@33.1.44", "", {}, "sha512-H0KwwIMC1JUiSMFLSHDCxgBvmHdVpcp5ZJo4/DosqVg6feilVZGoT9zM+hxOyFbXKktHTPODsiYIbxqjpYQgvA=="],
+
+    "@syncfusion/ej2-inputs": ["@syncfusion/ej2-inputs@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-buttons": "~33.1.44", "@syncfusion/ej2-popups": "~33.1.44", "@syncfusion/ej2-splitbuttons": "~33.1.44" } }, "sha512-6Fjpe5nbHygCPrdwSENSV1yRFcgjHcO6hD3a8DZiJlS6fyuCh0NC8/i3MSNAO8dtXtPsn0nxrBDnjIIo523F/w=="],
+
+    "@syncfusion/ej2-lists": ["@syncfusion/ej2-lists@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-buttons": "~33.1.44", "@syncfusion/ej2-data": "~33.1.45", "@syncfusion/ej2-popups": "~33.1.44" } }, "sha512-xHJTlBOkKddLOnhXt2gVl3mzzZ9aEaJLsvAxgQ2pOURBtk4m6D+mUQjMXQ2iLcl4Iei9SnntRE72iAnzhql9cg=="],
+
+    "@syncfusion/ej2-navigations": ["@syncfusion/ej2-navigations@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-buttons": "~33.1.44", "@syncfusion/ej2-data": "~33.1.45", "@syncfusion/ej2-inputs": "~33.1.47", "@syncfusion/ej2-lists": "~33.1.47", "@syncfusion/ej2-popups": "~33.1.44" } }, "sha512-zrTH9r6xh1MkEZg+E2aWDYyb3PtfZh00B+KcKwzhwAHp+PKdYWJUo3pTB8MUb8XxBMGoX7LlkOn+Zb4c2rM7fw=="],
+
+    "@syncfusion/ej2-notifications": ["@syncfusion/ej2-notifications@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-buttons": "~33.1.44", "@syncfusion/ej2-popups": "~33.1.44" } }, "sha512-leoQ1K6yR9NgU72YOactbw3aIUbflCqMOd0DmYBphF0tTunKVl13zHqRzZjGvz7f4wZwhAWIs5PAaagm99CSmA=="],
+
+    "@syncfusion/ej2-pdf-export": ["@syncfusion/ej2-pdf-export@33.1.44", "", { "dependencies": { "@syncfusion/ej2-compression": "~33.1.44" } }, "sha512-LzjsQS8FFfC6oEgbKhudvjiVQHHd52/cHhMcP18NeGVxnHkd5Oww08dN+l/kZrm4JqdkbnQTm8L/yCoVTjTOeA=="],
+
+    "@syncfusion/ej2-popups": ["@syncfusion/ej2-popups@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-buttons": "~33.1.44" } }, "sha512-LjP2kNT5oOpBN+zOIFka1Zx2Qwuw7fkTZBiqHpRCLDC7le+mRy81KUia2dHhJ9R3rp7sBRe8LuBH5kRJax28Nw=="],
+
+    "@syncfusion/ej2-react-base": ["@syncfusion/ej2-react-base@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44" } }, "sha512-soZZjquOUEjv56c5MWF9rS3Za58LZngkcAolHI1dseq23WBbZU2PEtqsGThTtCEqkqVOyZabghFuq3UDIFDhHA=="],
+
+    "@syncfusion/ej2-react-buttons": ["@syncfusion/ej2-react-buttons@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-buttons": "33.1.44", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-VAoGHxj2W1agmJ6tGCoFitDH8LaPtDpK2zXb8zMnei0FJ5ssPxOzFSqOcG9Uvwsw6D0qBK1FLLh4OhEWzhX93w=="],
+
+    "@syncfusion/ej2-react-calendars": ["@syncfusion/ej2-react-calendars@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-calendars": "33.1.44", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-uf2sblPNRn51SVrQj2rUrl6aSRSShw908dFy7l2puxvPuuToJ12EjtiRL5uM0J7JHseHqKr1xTfG6HIEEbRIcQ=="],
+
+    "@syncfusion/ej2-react-charts": ["@syncfusion/ej2-react-charts@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-charts": "33.1.47", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-pIp/ssFzVEns+qDXCc2H5lWt3WlsOSiN4PPjZuorZ9KI8Qj2vfb6H9q4UW0M1lyO1hVX5qW8Yu8+/xBNRONFzQ=="],
+
+    "@syncfusion/ej2-react-dropdowns": ["@syncfusion/ej2-react-dropdowns@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-dropdowns": "33.1.47", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-U2WDNAYBAl0kYgEzBx0/6RDQvL+h+Ks7A254ieg7nUd9ohroBN3qWq/ROv2+BmDhoQXexvVml3+FuzanaES3TA=="],
+
+    "@syncfusion/ej2-react-grids": ["@syncfusion/ej2-react-grids@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-grids": "33.1.47", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-1BsbN/roLteb5fSOSYbn/iLZj5zJhyR1o2i2bfKhPv+WlEHqEQMQXZDYy43HES8SWWlPX/Z0zM7GGbxpCKxRNQ=="],
+
+    "@syncfusion/ej2-react-inputs": ["@syncfusion/ej2-react-inputs@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-inputs": "33.1.47", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-EsD6WAeldUn9dafGXPlYqL57cWKT5B5JL0fqugXNJIGjbdKEjAuhHvPM38EJM1tLrnv/N2UG2lkvsp81D58Now=="],
+
+    "@syncfusion/ej2-react-navigations": ["@syncfusion/ej2-react-navigations@33.1.47", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.45", "@syncfusion/ej2-navigations": "33.1.47", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-RGKCJRLwppu+DA/tLfGKSFhywzVwl7dGvvBRhNSLHesEe0Btkzalom0xer+ovoe58gmbHVI5hN5rK+BAMaDtJA=="],
+
+    "@syncfusion/ej2-react-popups": ["@syncfusion/ej2-react-popups@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-popups": "33.1.44", "@syncfusion/ej2-react-base": "~33.1.44" } }, "sha512-ocku3YSruQtvZo+utHN/KwrXMGpL7Ad09D64GwAWkbLw9OFF5VMDyRbSgr7g+iyPyFzFEiaypYsAIv+uycNYIw=="],
+
+    "@syncfusion/ej2-react-splitbuttons": ["@syncfusion/ej2-react-splitbuttons@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-react-base": "~33.1.44", "@syncfusion/ej2-splitbuttons": "33.1.44" } }, "sha512-+LEZJ9yaz/HZjusayg2wofQZifenaV7s3P1SSG5KF1nSOE8d4kuoIIEPaxAJmikBUqkU+NOD3eDeearGs83/dQ=="],
+
+    "@syncfusion/ej2-splitbuttons": ["@syncfusion/ej2-splitbuttons@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44", "@syncfusion/ej2-popups": "~33.1.44" } }, "sha512-gTuzWFfp+Y7dM0YwX3RdaHB5z9wkBDfSsE7hutazSUDFqyklTold45t33oDJikYlsr1w7tCeqY6LwZjMRchBHw=="],
+
+    "@syncfusion/ej2-svg-base": ["@syncfusion/ej2-svg-base@33.1.44", "", { "dependencies": { "@syncfusion/ej2-base": "~33.1.44" } }, "sha512-KrOBOJROi1DGL2tqGimDXId9IftmV9nx7IKScc7s+bpWrlORx3nbIVMRCTPetiOYPQYYAVP1oRHZqqWAQPmpPw=="],
 
     "@tailwindcss/node": ["@tailwindcss/node@4.2.2", "", { "dependencies": { "@jridgewell/remapping": "^2.3.5", "enhanced-resolve": "^5.19.0", "jiti": "^2.6.1", "lightningcss": "1.32.0", "magic-string": "^0.30.21", "source-map-js": "^1.2.1", "tailwindcss": "4.2.2" } }, "sha512-pXS+wJ2gZpVXqFaUEjojq7jzMpTGf8rU6ipJz5ovJV6PUGmlJ+jvIwGrzdHdQ80Sg+wmQxUFuoW1UAAwHNEdFA=="],
 
@@ -1438,6 +1508,8 @@
     "loupe": ["loupe@3.2.1", "", {}, "sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ=="],
 
     "lru-cache": ["lru-cache@6.0.0", "", { "dependencies": { "yallist": "^4.0.0" } }, "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA=="],
+
+    "lucide-react": ["lucide-react@1.8.0", "", { "peerDependencies": { "react": "^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-WuvlsjngSk7TnTBJ1hsCy3ql9V9VOdcPkd3PKcSmM34vJD8KG6molxz7m7zbYFgICwsanQWmJ13JlYs4Zp7Arw=="],
 
     "lz-string": ["lz-string@1.5.0", "", { "bin": { "lz-string": "bin/bin.js" } }, "sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ=="],
 
