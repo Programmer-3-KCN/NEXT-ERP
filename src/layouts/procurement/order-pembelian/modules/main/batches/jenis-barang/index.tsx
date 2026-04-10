@@ -22,14 +22,20 @@ export const JenisBarang: FC = (): ReactElement => {
     >
       <section className="flex flex-col items-center gap-3">
         <div className="flex flex-col gap-1">
-          <Button color="gray" size="sm" variant="semi">
+          <Button className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1" color="gray" size="sm" variant="semi">
             Barang Produksi
           </Button>
-          <Button color="gray" size="sm" variant="semi">
+          <Button className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1" color="gray" size="sm" variant="semi">
             Barang Jadi
           </Button>
         </div>
-        <Button color="gray" onClick={() => setModal((prev) => ({ ...prev, jenisBarang: false }))} size="sm" variant="semi">
+        <Button
+          className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
+          color="gray"
+          onClick={() => setModal((prev) => ({ ...prev, jenisBarang: false }))}
+          size="sm"
+          variant="semi"
+        >
           Batal
         </Button>
       </section>

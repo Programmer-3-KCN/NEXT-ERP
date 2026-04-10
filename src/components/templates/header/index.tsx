@@ -76,7 +76,7 @@ export const Header: FC = (): ReactElement => {
                 <Button
                   aria-expanded={isOpen}
                   aria-haspopup="menu"
-                  className={`cursor-default px-3 py-2 ${isOpen ? "bg-blue-50 text-blue-600" : ""}`}
+                  className={`cursor-default rounded-md px-3 py-2 ${isOpen ? "bg-blue-50 text-blue-600" : ""}`}
                   color="black-blue"
                   onClick={() => handleOpenMenu(dt.label)}
                   size="sm"
