@@ -4,7 +4,7 @@ import { ColumnDirective, ColumnsDirective, GridComponent, Inject, Page, Resize,
 import { ChevronDown, ChevronRight, FileText } from "lucide-react";
 import { FC, ReactElement } from "react";
 
-import { ButtonTWM, useFilterLayoutContext } from "@/src/components";
+import { Button, useFilterLayoutContext } from "@/src/components";
 import { ORDER_PEMBELIAN_DATA } from "@/src/libs";
 
 import { useLocalContext } from "../../context";
@@ -28,33 +28,34 @@ export const Main: FC = (): ReactElement => {
       </style>
 
       <div className="flex items-center gap-1 px-2 py-1">
-        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })} onClick={() => setIsFilterOpen((prev) => !prev)}>
+        <Button color="black-blue" onClick={() => setIsFilterOpen((prev) => !prev)} size="sm" variant="ghost">
           Filter
-        </button>
-        <button
-          className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}
-          onClick={() => setModal((prev) => ({ ...prev, jenisTransaksi: true }))}
-        >
+        </Button>
+        <Button color="black-blue" onClick={() => setModal((prev) => ({ ...prev, jenisTransaksi: true }))} size="sm" variant="ghost">
           Baru
-        </button>
-        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}>Ubah</button>
-        <button className={ButtonTWM({ className: "gap-0", color: "green", size: "sm", variant: "ghost" })}>
+        </Button>
+        <Button color="black-blue" size="sm" variant="ghost">
+          Ubah
+        </Button>
+        <Button className="gap-0" color="green" size="sm" variant="ghost">
           <ChevronRight size={14} /> Approval
-        </button>
-        <button className={ButtonTWM({ className: "gap-0", color: "red", size: "sm", variant: "ghost" })}>
+        </Button>
+        <Button className="gap-0" color="red" size="sm" variant="ghost">
           <ChevronRight size={14} /> Pembatalan
-        </button>
-        <button className={ButtonTWM({ className: "gap-0", color: "blue", size: "sm", variant: "ghost" })}>
+        </Button>
+        <Button className="gap-0" color="blue" size="sm" variant="ghost">
           <ChevronRight size={14} /> Update File
-        </button>
-        <button className={ButtonTWM({ color: "green", size: "sm", variant: "ghost" })}>
+        </Button>
+        <Button color="green" size="sm" variant="ghost">
           <FileText size={14} />
           Acc. DIREKSI
-        </button>
-        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}>Cetak</button>
-        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}>
+        </Button>
+        <Button color="black-blue" size="sm" variant="ghost">
+          Cetak
+        </Button>
+        <Button color="black-blue" size="sm" variant="ghost">
           <ChevronDown size={14} /> Detail Dok
-        </button>
+        </Button>
       </div>
 
       <div className="flex-1 overflow-hidden px-2 pb-2">

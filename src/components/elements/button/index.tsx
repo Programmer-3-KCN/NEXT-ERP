@@ -66,7 +66,7 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
     variant === "semi" &&
       color === "gray" &&
       !disabled &&
-      "border border-gray-300 bg-gray-50 text-gray-600 hover:bg-gray-100 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700",
+      "border border-gray-300 bg-gray-100 text-black hover:bg-gray-200 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700",
 
     variant === "semi" && disabled && "border border-gray-300 bg-gray-100 text-gray-400",
 
@@ -140,11 +140,11 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
     variant === "ghost" && disabled && "text-gray-400",
 
     // ⭐ === SIZE === ⭐
-    size === "sm" && variant !== "ghost" && "h-10 min-h-10 min-w-28 px-3 text-base",
+    size === "sm" && variant !== "ghost" && "h-10 min-h-10 min-w-28 px-3 text-sm",
 
-    size === "md" && variant !== "ghost" && "h-11 min-h-11 min-w-32 px-4 text-lg",
+    size === "md" && variant !== "ghost" && "h-11 min-h-11 min-w-32 px-4 text-base",
 
-    size === "lg" && variant !== "ghost" && "h-12 min-h-12 min-w-36 px-5 text-xl",
+    size === "lg" && variant !== "ghost" && "h-12 min-h-12 min-w-36 px-5 text-lg",
 
     // ⭐ === GHOST SIZE === ⭐
     size === "sm" && variant === "ghost" && "rounded-sm px-2 py-1 text-sm",

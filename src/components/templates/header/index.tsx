@@ -7,7 +7,7 @@ import { FC, ReactElement, useEffect, useRef, useState } from "react";
 
 import { MENU_DATA } from "@/src/libs";
 
-import { ButtonTWM } from "../../elements";
+import { Button, ButtonTWM } from "../../elements";
 
 interface ISubItemChildren {
   children: string[];
@@ -65,7 +65,7 @@ export const Header: FC = (): ReactElement => {
   return (
     <header className="flex h-16 w-full shrink-0 items-center justify-between gap-5 border-b border-gray-300 bg-white px-5">
       <div className="flex items-center gap-3">
-        <Image alt="NEXT ERP" height={30} src="/assets/images/logos/NEXT-ERP.png" width={30} />
+        <Image alt="NEXT ERP" className="-mb-0.5" height={30} src="/assets/images/logos/NEXT-ERP.png" width={30} />
 
         <nav className="flex flex-wrap items-center" ref={menuRef}>
           {MENU_DATA.map((dt) => {
@@ -73,21 +73,19 @@ export const Header: FC = (): ReactElement => {
 
             return (
               <div className="relative" key={dt.label} onMouseEnter={() => handleOpenMenu(dt.label)} onMouseLeave={handleCloseMenu}>
-                <button
+                <Button
                   aria-expanded={isOpen}
                   aria-haspopup="menu"
-                  className={ButtonTWM({
-                    className: `cursor-default px-3 py-2 ${isOpen ? "bg-blue-50 text-blue-600" : ""}`,
-                    color: "black-blue",
-                    size: "sm",
-                    variant: "ghost",
-                  })}
+                  className={`cursor-default px-3 py-2 ${isOpen ? "bg-blue-50 text-blue-600" : ""}`}
+                  color="black-blue"
                   onClick={() => handleOpenMenu(dt.label)}
+                  size="sm"
+                  variant="ghost"
                 >
                   <dt.icon size={16} />
                   <span>{dt.label}</span>
                   <ChevronDown className={isOpen ? "rotate-180 transition-transform duration-100" : "transition-transform duration-100"} size={14} />
-                </button>
+                </Button>
 
                 {isOpen ? (
                   <div className="absolute top-full left-0 z-20 min-w-80 pt-1">
@@ -99,17 +97,15 @@ export const Header: FC = (): ReactElement => {
                         return (
                           <div className="group relative" key={subItemLabel}>
                             {hasChildren ? (
-                              <button
-                                className={ButtonTWM({
-                                  className: "w-full cursor-default group-hover:bg-blue-50 group-hover:text-blue-600",
-                                  color: "black-blue",
-                                  size: "sm",
-                                  variant: "ghost",
-                                })}
+                              <Button
+                                className="w-full cursor-default group-hover:bg-blue-50 group-hover:text-blue-600"
+                                color="black-blue"
+                                size="sm"
+                                variant="ghost"
                               >
                                 <span>{subItemLabel}</span>
                                 {hasChildren ? <ChevronRight size={14} /> : null}
-                              </button>
+                              </Button>
                             ) : (
                               <Link
                                 className={ButtonTWM({
@@ -128,7 +124,11 @@ export const Header: FC = (): ReactElement => {
                                 <div className="flex max-h-96 min-w-64 flex-col gap-1 overflow-y-auto">
                                   {subItem.children.map((childItem) => (
                                     <Link
-                                      className="block cursor-pointer rounded-md px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600"
+                                      className={ButtonTWM({
+                                        color: "black-blue",
+                                        size: "sm",
+                                        variant: "ghost",
+                                      })}
                                       href={formatMenuHref(dt.label, subItemLabel, childItem)}
                                       key={childItem}
                                     >
@@ -162,9 +162,9 @@ export const Header: FC = (): ReactElement => {
           <span className="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-600">999</span>
         </div>
 
-        <button className={ButtonTWM({ className: "min-h-full min-w-0 px-3 py-2", color: "red", size: "md", variant: "semi" })}>
+        <Button className="min-h-full min-w-0 px-3 py-2" color="red" size="md" variant="semi">
           <LogOut size={16} />
-        </button>
+        </Button>
       </div>
     </header>
   );
