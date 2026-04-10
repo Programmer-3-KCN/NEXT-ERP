@@ -6,8 +6,8 @@ interface I extends DetailedHTMLProps<Omit<HTMLAttributes<HTMLElement>, "childre
   className?: string;
 }
 
-export const FilterLayoutMain: FC<I> = ({ children, className, ...props }): ReactElement => (
-  <main className={twm("flex-1 overflow-auto p-1", className)} {...props}>
+export const FilterLayoutAsideContentContainer: FC<I> = ({ children, className, ...props }): ReactElement => (
+  <section className={twm("flex max-h-full flex-1 flex-col gap-1 overflow-y-auto px-3 py-1", className)} {...props}>
     {children}
-  </main>
+  </section>
 );

@@ -1,6 +1,19 @@
 "use client";
 
-import { createContext, Dispatch, FC, PropsWithChildren, ReactElement, SetStateAction, useContext, useState } from "react";
+import {
+  createContext,
+  DetailedHTMLProps,
+  Dispatch,
+  FC,
+  HTMLAttributes,
+  PropsWithChildren,
+  ReactElement,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
+
+import { twm } from "@/src/libs";
 
 type TContext = Readonly<{
   isFilterOpen: boolean;
@@ -19,14 +32,18 @@ export const useFilterLayoutContext = (): TContext => {
   return context;
 };
 
-type T = Readonly<PropsWithChildren>;
+interface I extends DetailedHTMLProps<Omit<HTMLAttributes<HTMLDivElement>, "children" | "className">, HTMLDivElement>, Readonly<PropsWithChildren> {
+  className?: string;
+}
 
-export const FilterLayoutContainer: FC<T> = (props): ReactElement => {
+export const FilterLayoutContainer: FC<I> = ({ children, className, ...props }): ReactElement => {
   const [isFilterOpen, setIsFilterOpen] = useState(true);
 
   return (
     <FilterLayoutContext.Provider value={{ isFilterOpen: isFilterOpen, setIsFilterOpen: setIsFilterOpen }}>
-      <div className="flex flex-1 overflow-hidden">{props.children}</div>
+      <div className={twm("flex flex-1 overflow-hidden", className)} {...props}>
+        {children}
+      </div>
     </FilterLayoutContext.Provider>
   );
 };

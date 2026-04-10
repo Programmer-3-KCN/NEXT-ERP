@@ -6,6 +6,15 @@ import { ChangeEventArgs as DropDownChangeEventArgs, DropDownListComponent } fro
 import { InputEventArgs, TextBoxComponent } from "@syncfusion/ej2-react-inputs";
 import { FC, Fragment, ReactElement } from "react";
 
+import {
+  FilterLayoutAsideCheckbox,
+  FilterLayoutAsideContentContainer,
+  FilterLayoutAsideFromTo,
+  FilterLayoutAsideInput,
+  FilterLayoutAsideLegend,
+  FilterLayoutAsideRefreshButton,
+} from "@/src/components";
+
 import { IFilterState, useLocalContext } from "../../../../context";
 
 export const Content: FC = (): ReactElement => {
@@ -33,123 +42,129 @@ export const Content: FC = (): ReactElement => {
 
   return (
     <>
-      <section className="flex max-h-full flex-1 flex-col gap-1 overflow-y-auto px-3 py-1">
+      <FilterLayoutAsideContentContainer>
         {/* No. PO */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("noPOChecked")} checked={filter.noPOChecked} label="No. PO" />
           <TextBoxComponent input={handleTextChange("noPO")} value={filter.noPO} />
-        </div>
+        </FilterLayoutAsideInput>
 
         {/* Tanggal */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("tanggalChecked")} checked={filter.tanggalChecked} label="Tanggal" />
-          <div className="flex items-center gap-1">
-            <DatePickerComponent
-              format={"dd-MM-yyyy"}
-              onChange={handleDateChange("tanggalFrom", "tanggalChecked")}
-              showClearButton={false}
-              value={filter.tanggalFrom ?? undefined}
-            />
-            <span>s/d</span>
-            <DatePickerComponent
-              format={"dd-MM-yyyy"}
-              onChange={handleDateChange("tanggalTo", "tanggalChecked")}
-              showClearButton={false}
-              value={filter.tanggalTo ?? undefined}
-            />
-          </div>
-        </div>
+          <FilterLayoutAsideFromTo
+            from={
+              <DatePickerComponent
+                format={"dd-MM-yyyy"}
+                onChange={handleDateChange("tanggalFrom", "tanggalChecked")}
+                showClearButton={false}
+                value={filter.tanggalFrom ?? undefined}
+              />
+            }
+            to={
+              <DatePickerComponent
+                format={"dd-MM-yyyy"}
+                onChange={handleDateChange("tanggalTo", "tanggalChecked")}
+                showClearButton={false}
+                value={filter.tanggalTo ?? undefined}
+              />
+            }
+          />
+        </FilterLayoutAsideInput>
 
         {/* Tanggal Berlaku */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("tanggalBerlakuChecked")} checked={filter.tanggalBerlakuChecked} label="Tanggal Berlaku" />
-          <div className="flex items-center gap-1">
-            <DatePickerComponent
-              format={"dd-MM-yyyy"}
-              onChange={handleDateChange("tanggalBerlakuFrom", "tanggalBerlakuChecked")}
-              showClearButton={false}
-              value={filter.tanggalBerlakuFrom ?? undefined}
-            />
-            <span>s/d</span>
-            <DatePickerComponent
-              format={"dd-MM-yyyy"}
-              onChange={handleDateChange("tanggalBerlakuTo", "tanggalBerlakuChecked")}
-              showClearButton={false}
-              value={filter.tanggalBerlakuTo ?? undefined}
-            />
-          </div>
-        </div>
+          <FilterLayoutAsideFromTo
+            from={
+              <DatePickerComponent
+                format={"dd-MM-yyyy"}
+                onChange={handleDateChange("tanggalBerlakuFrom", "tanggalBerlakuChecked")}
+                showClearButton={false}
+                value={filter.tanggalBerlakuFrom ?? undefined}
+              />
+            }
+            to={
+              <DatePickerComponent
+                format={"dd-MM-yyyy"}
+                onChange={handleDateChange("tanggalBerlakuTo", "tanggalBerlakuChecked")}
+                showClearButton={false}
+                value={filter.tanggalBerlakuTo ?? undefined}
+              />
+            }
+          />
+        </FilterLayoutAsideInput>
 
         {/* Tanggal Kirim */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("tanggalKirimChecked")} checked={filter.tanggalKirimChecked} label="Tanggal Kirim" />
-          <div className="flex items-center gap-1">
-            <DatePickerComponent
-              format={"dd-MM-yyyy"}
-              onChange={handleDateChange("tanggalKirimFrom", "tanggalKirimChecked")}
-              showClearButton={false}
-              value={filter.tanggalKirimFrom ?? undefined}
-            />
-            <span>s/d</span>
-            <DatePickerComponent
-              format={"dd-MM-yyyy"}
-              onChange={handleDateChange("tanggalKirimTo", "tanggalKirimChecked")}
-              showClearButton={false}
-              value={filter.tanggalKirimTo ?? undefined}
-            />
-          </div>
-        </div>
+          <FilterLayoutAsideFromTo
+            from={
+              <DatePickerComponent
+                format={"dd-MM-yyyy"}
+                onChange={handleDateChange("tanggalKirimFrom", "tanggalKirimChecked")}
+                showClearButton={false}
+                value={filter.tanggalKirimFrom ?? undefined}
+              />
+            }
+            to={
+              <DatePickerComponent
+                format={"dd-MM-yyyy"}
+                onChange={handleDateChange("tanggalKirimTo", "tanggalKirimChecked")}
+                showClearButton={false}
+                value={filter.tanggalKirimTo ?? undefined}
+              />
+            }
+          />
+        </FilterLayoutAsideInput>
 
         {/* Nama Supplier */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("namaSupplierChecked")} checked={filter.namaSupplierChecked} label="Nama Supplier" />
           <TextBoxComponent input={handleTextChange("namaSupplier")} value={filter.namaSupplier} />
-        </div>
+        </FilterLayoutAsideInput>
 
         {/* Nama Barang */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("namaBarangChecked")} checked={filter.namaBarangChecked} label="Nama Barang" />
           <TextBoxComponent input={handleTextChange("namaBarang")} value={filter.namaBarang} />
-        </div>
+        </FilterLayoutAsideInput>
 
         {/* Status Dokumen */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("statusDokumenChecked")} checked={filter.statusDokumenChecked} label="Status Dokumen" />
           <DropDownListComponent change={handleDropDownChange("statusDokumen")} value={filter.statusDokumen} />
-        </div>
+        </FilterLayoutAsideInput>
 
         {/* Status Approval */}
-        <div className="flex flex-col gap-1">
+        <FilterLayoutAsideInput>
           <CheckBoxComponent change={handleCheckChange("statusApprovalChecked")} checked={filter.statusApprovalChecked} label="Status Approval" />
           <DropDownListComponent change={handleDropDownChange("statusApproval")} value={filter.statusApproval} />
-        </div>
+        </FilterLayoutAsideInput>
 
         {/* Kelompok Supplier */}
-        <fieldset className="border border-gray-300 px-2 pb-2">
-          <legend className="px-2 text-sm font-semibold">Kelompok Supplier</legend>
-          <div className="flex flex-col gap-1">
-            {(
-              [
-                { label: "Semua", value: "semua" },
-                { label: "Besi", value: "besi" },
-                { label: "Non Besi", value: "nonBesi" },
-                { label: "Besi dan Non Besi", value: "besiDanNonBesi" },
-              ] as { label: string; value: IFilterState["kelompokSupplier"] }[]
-            ).map(({ label, value }) => (
-              <RadioButtonComponent
-                change={handleRadioChange}
-                checked={filter.kelompokSupplier === value}
-                key={value}
-                label={label}
-                name="kelompokSupplier"
-                value={value}
-              />
-            ))}
-          </div>
-        </fieldset>
+        <FilterLayoutAsideLegend label="Kelompok Supplier">
+          {(
+            [
+              { label: "Semua", value: "semua" },
+              { label: "Besi", value: "besi" },
+              { label: "Non Besi", value: "nonBesi" },
+              { label: "Besi dan Non Besi", value: "besiDanNonBesi" },
+            ] as { label: string; value: IFilterState["kelompokSupplier"] }[]
+          ).map(({ label, value }) => (
+            <RadioButtonComponent
+              change={handleRadioChange}
+              checked={filter.kelompokSupplier === value}
+              key={value}
+              label={label}
+              name="kelompokSupplier"
+              value={value}
+            />
+          ))}
+        </FilterLayoutAsideLegend>
 
         {/* Checkboxes */}
-        <div className="flex flex-col gap-1 pt-1">
+        <FilterLayoutAsideCheckbox>
           {(
             [
               { label: "PO Kontrak", name: "poKontrak" },
@@ -209,12 +224,10 @@ export const Content: FC = (): ReactElement => {
                 return <CheckBoxComponent change={handleCheckChange(name)} checked={filter[name] as boolean} key={name} label={label} />;
             }
           })}
-        </div>
-      </section>
+        </FilterLayoutAsideCheckbox>
+      </FilterLayoutAsideContentContainer>
 
-      <section className="border-t border-blue-500 px-3 py-2">
-        <button className="w-full cursor-pointer rounded-md bg-blue-500 px-3 py-2 font-semibold text-white active:scale-95">Refresh</button>
-      </section>
+      <FilterLayoutAsideRefreshButton />
     </>
   );
 };
