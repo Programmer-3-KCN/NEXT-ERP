@@ -7,6 +7,8 @@ import { FC, ReactElement, useEffect, useRef, useState } from "react";
 
 import { MENU_DATA } from "@/src/libs";
 
+import { ButtonTWM } from "../../elements";
+
 interface ISubItemChildren {
   children: string[];
   label: string;
@@ -133,18 +135,18 @@ export const Header: FC = (): ReactElement => {
       </div>
 
       <div className="flex gap-1">
-        <div className="flex items-center gap-3 rounded-md border border-gray-300 bg-blue-50 px-2 py-1">
+        <div className="flex items-center gap-3 rounded-md border border-gray-300 bg-blue-50 px-2">
           <div className="flex size-9 items-center justify-center rounded-full bg-blue-500 text-white">
             <CircleUser size={30} />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase">Role</span>
+            <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase">ROLE</span>
             <span className="text-sm font-semibold text-black">Administrator</span>
           </div>
           <span className="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-600">999</span>
         </div>
 
-        <button className="flex cursor-pointer items-center rounded-md border border-red-200 bg-red-50 px-3 py-2 text-red-500 hover:bg-red-100 active:scale-95">
+        <button className={ButtonTWM({ className: "min-h-full min-w-0 px-3 py-2", color: "red", size: "md", variant: "semi" })}>
           <LogOut size={16} />
         </button>
       </div>

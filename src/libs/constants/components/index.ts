@@ -12,6 +12,6 @@ export const AVATAR_SIZE_OPTIONS = ["lg", "md", "sm"] as const;
 
 // ----------------------------
 
-export const BUTTON_VARIANT_OPTIONS = ["ghost", "outline", "solid"] as const;
-export const BUTTON_COLOR_OPTIONS = ["red", "green", "blue", "black-blue", "black", "white", "gray"] as const;
+export const BUTTON_VARIANT_OPTIONS = ["ghost", "outline", "semi", "solid"] as const;
+export const BUTTON_COLOR_OPTIONS = ["red", "green", "blue", "black-blue", "black-red", "black-green", "black", "white", "gray"] as const;
 export const BUTTON_SIZE_OPTIONS = ["lg", "md", "sm"] as const;
