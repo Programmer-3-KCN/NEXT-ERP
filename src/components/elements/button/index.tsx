@@ -11,7 +11,7 @@ export interface IButton extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButt
 
 export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton) =>
   twm(
-    "flex items-center gap-2 font-semibold",
+    "flex cursor-pointer items-center gap-1 whitespace-nowrap transition duration-100",
     // ⭐ === BASE === ⭐
     variant !== "ghost" && "justify-center rounded-md",
     disabled ? "cursor-not-allowed" : "active:scale-95",
@@ -65,11 +65,13 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
     variant === "outline" && disabled && "bg-transparent text-gray-400 ring-1 ring-gray-400 ring-inset",
 
     // ⭐ === GHOST === ⭐
-    variant === "ghost" && color === "red" && !disabled && "text-red-500",
+    variant === "ghost" && color === "red" && !disabled && "text-red-600 hover:bg-red-50",
 
-    variant === "ghost" && color === "green" && !disabled && "text-green-500",
+    variant === "ghost" && color === "green" && !disabled && "text-green-600 hover:bg-green-50",
 
-    variant === "ghost" && color === "blue" && !disabled && "text-blue-500",
+    variant === "ghost" && color === "blue" && !disabled && "text-blue-600 hover:bg-blue-50",
+
+    variant === "ghost" && color === "black-blue" && !disabled && "text-black hover:bg-blue-50 hover:text-blue-600",
 
     variant === "ghost" && color === "black" && !disabled && "text-black dark:text-white",
 
@@ -87,11 +89,11 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
     size === "lg" && variant !== "ghost" && "h-12 min-h-12 min-w-36 px-5 text-xl",
 
     // ⭐ === GHOST SIZE === ⭐
-    size === "sm" && variant === "ghost" && "text-base",
+    size === "sm" && variant === "ghost" && "rounded-sm px-2 py-1 text-sm",
 
-    size === "md" && variant === "ghost" && "text-lg",
+    size === "md" && variant === "ghost" && "rounded-md px-4 py-2 text-base",
 
-    size === "lg" && variant === "ghost" && "text-xl",
+    size === "lg" && variant === "ghost" && "rounded-lg px-5 py-3 text-lg",
 
     // ⭐ === CLASSNAME === ⭐
     className,

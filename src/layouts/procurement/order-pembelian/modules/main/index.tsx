@@ -4,7 +4,7 @@ import { ColumnDirective, ColumnsDirective, GridComponent, Inject, Page, Resize,
 import { ChevronDown, ChevronRight, FileText } from "lucide-react";
 import { FC, ReactElement } from "react";
 
-import { useFilterLayoutContext } from "@/src/components";
+import { ButtonTWM, useFilterLayoutContext } from "@/src/components";
 import { ORDER_PEMBELIAN_DATA } from "@/src/libs";
 
 import { useLocalContext } from "../../context";
@@ -28,38 +28,31 @@ export const Main: FC = (): ReactElement => {
       </style>
 
       <div className="flex items-center gap-1 px-2 py-1">
-        <button
-          className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95"
-          onClick={() => setIsFilterOpen((prev) => !prev)}
-        >
+        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })} onClick={() => setIsFilterOpen((prev) => !prev)}>
           Filter
         </button>
         <button
-          className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95"
+          className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}
           onClick={() => setModal((prev) => ({ ...prev, jenisTransaksi: true }))}
         >
           Baru
         </button>
-        <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95">
-          Ubah
-        </button>
-        <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap text-green-600 transition duration-100 hover:bg-green-50 active:scale-95">
+        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}>Ubah</button>
+        <button className={ButtonTWM({ className: "gap-0", color: "green", size: "sm", variant: "ghost" })}>
           <ChevronRight size={14} /> Approval
         </button>
-        <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap text-red-600 transition duration-100 hover:bg-red-50 active:scale-95">
+        <button className={ButtonTWM({ className: "gap-0", color: "red", size: "sm", variant: "ghost" })}>
           <ChevronRight size={14} /> Pembatalan
         </button>
-        <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap text-blue-600 transition duration-100 hover:bg-blue-50 active:scale-95">
+        <button className={ButtonTWM({ className: "gap-0", color: "blue", size: "sm", variant: "ghost" })}>
           <ChevronRight size={14} /> Update File
         </button>
-        <button className="flex cursor-pointer items-center gap-0.5 rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap text-green-600 transition duration-100 hover:bg-green-50 active:scale-95">
+        <button className={ButtonTWM({ color: "green", size: "sm", variant: "ghost" })}>
           <FileText size={14} />
           Acc. DIREKSI
         </button>
-        <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95">
-          Cetak
-        </button>
-        <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95">
+        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}>Cetak</button>
+        <button className={ButtonTWM({ color: "black-blue", size: "sm", variant: "ghost" })}>
           <ChevronDown size={14} /> Detail Dok
         </button>
       </div>
