@@ -3,11 +3,17 @@ import { DetailedHTMLProps, FC, HTMLAttributes, PropsWithChildren, ReactElement 
 import { twm } from "@/src/libs";
 
 interface I extends DetailedHTMLProps<Omit<HTMLAttributes<HTMLElement>, "children" | "className">, HTMLElement>, Readonly<PropsWithChildren> {
-  className?: string;
+  className?: {
+    button?: string;
+    container?: string;
+    content?: string;
+    header?: string;
+  };
 }
 
 export const FilterLayoutMain: FC<I> = ({ children, className, ...props }): ReactElement => (
-  <main className={twm("flex-1 overflow-hidden p-1", className)} {...props}>
-    {children}
+  <main className={twm("flex flex-1 flex-col overflow-hidden p-1", className?.container)} {...props}>
+    <h2 className={twm("rounded-t-md bg-blue-500 px-3 py-1 font-semibold text-white", className?.header)}>Order Pembelian (PO)</h2>
+    <div className={twm("flex flex-1 flex-col overflow-y-auto rounded-b-md border border-blue-500 bg-white", className?.content)}>{children}</div>
   </main>
 );

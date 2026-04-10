@@ -3,9 +3,11 @@
 import { ColumnDirective, ColumnsDirective, GridComponent, Inject, Page, Resize, Sort } from "@syncfusion/ej2-react-grids";
 import { FC, ReactElement } from "react";
 
+import { useFilterLayoutContext } from "@/src/components";
+
 type TOrderPembelianRow = {
   beratKg: number;
-  biayaPengiriman: number;
+  biayaPengiriman: null | number;
   estimasiPengiriman: Date;
   nettoMU: number;
   nomorPO: string;
@@ -20,136 +22,242 @@ type TOrderPembelianRow = {
 
 const orderPembelianData: TOrderPembelianRow[] = [
   {
-    beratKg: 1250.5,
-    biayaPengiriman: 1500000,
-    estimasiPengiriman: new Date("2026-04-16"),
-    nettoMU: 24500000,
-    nomorPO: "PO-240401",
-    pajak: "PPN 11%",
-    statusApproval: "Approved",
-    statusDokumen: "Open",
-    supplier: "PT Baja Konstruksi Nusantara",
-    tanggal: new Date("2026-04-10"),
-    tanggalBerlaku: new Date("2026-04-30"),
-    termin: "30 Hari",
+    beratKg: 4900,
+    biayaPengiriman: null,
+    estimasiPengiriman: new Date("2021-05-31"),
+    nettoMU: 77625000,
+    nomorPO: "2102.0910.00022",
+    pajak: "Tanpa Pajak",
+    statusApproval: "Disetujui",
+    statusDokumen: "Tertutup",
+    supplier: "KENCANA PUSAT",
+    tanggal: new Date("2021-05-24"),
+    tanggalBerlaku: new Date("2021-05-31"),
+    termin: "Net 1",
   },
   {
-    beratKg: 780,
-    biayaPengiriman: 950000,
-    estimasiPengiriman: new Date("2026-04-18"),
-    nettoMU: 18250000,
-    nomorPO: "PO-240402",
-    pajak: "PPN 11%",
-    statusApproval: "Pending",
-    statusDokumen: "Release",
-    supplier: "CV Sumber Material Teknik",
-    tanggal: new Date("2026-04-11"),
-    tanggalBerlaku: new Date("2026-05-02"),
-    termin: "14 Hari",
+    beratKg: 11790,
+    biayaPengiriman: null,
+    estimasiPengiriman: new Date("2021-06-09"),
+    nettoMU: 136626050,
+    nomorPO: "2102.0910.00023",
+    pajak: "Tanpa Pajak",
+    statusApproval: "Disetujui",
+    statusDokumen: "Tertutup",
+    supplier: "KENCANA PUSAT",
+    tanggal: new Date("2021-05-24"),
+    tanggalBerlaku: new Date("2021-05-31"),
+    termin: "Net 1",
   },
   {
-    beratKg: 560.25,
-    biayaPengiriman: 675000,
-    estimasiPengiriman: new Date("2026-04-20"),
-    nettoMU: 12780000,
-    nomorPO: "PO-240403",
-    pajak: "Non Pajak",
-    statusApproval: "Approved",
-    statusDokumen: "Close",
-    supplier: "PT Anugerah Logam Persada",
-    tanggal: new Date("2026-04-12"),
-    tanggalBerlaku: new Date("2026-05-05"),
-    termin: "COD",
+    beratKg: 18850,
+    biayaPengiriman: null,
+    estimasiPengiriman: new Date("2021-06-03"),
+    nettoMU: 49049000,
+    nomorPO: "2102.0910.00025",
+    pajak: "Tanpa Pajak",
+    statusApproval: "Disetujui",
+    statusDokumen: "Tertutup",
+    supplier: "KENCANA PUSAT",
+    tanggal: new Date("2021-05-27"),
+    tanggalBerlaku: new Date("2021-05-30"),
+    termin: "Net 1",
   },
   {
-    beratKg: 910.75,
-    biayaPengiriman: 1125000,
-    estimasiPengiriman: new Date("2026-04-22"),
-    nettoMU: 21990000,
-    nomorPO: "PO-240404",
-    pajak: "PPN 11%",
-    statusApproval: "Revision",
-    statusDokumen: "Draft",
-    supplier: "PT Multi Artha Supplier",
-    tanggal: new Date("2026-04-13"),
-    tanggalBerlaku: new Date("2026-05-06"),
-    termin: "21 Hari",
+    beratKg: 30500,
+    biayaPengiriman: null,
+    estimasiPengiriman: new Date("2021-06-03"),
+    nettoMU: 76440000,
+    nomorPO: "2102.0910.00026",
+    pajak: "Tanpa Pajak",
+    statusApproval: "Disetujui",
+    statusDokumen: "Tertutup",
+    supplier: "KENCANA PUSAT",
+    tanggal: new Date("2021-05-27"),
+    tanggalBerlaku: new Date("2021-06-03"),
+    termin: "Net 1",
   },
   {
-    beratKg: 430,
-    biayaPengiriman: 540000,
-    estimasiPengiriman: new Date("2026-04-25"),
-    nettoMU: 9850000,
-    nomorPO: "PO-240405",
-    pajak: "PPN 11%",
-    statusApproval: "Approved",
-    statusDokumen: "Open",
-    supplier: "UD Mitra Karya Mandiri",
-    tanggal: new Date("2026-04-14"),
-    tanggalBerlaku: new Date("2026-05-08"),
-    termin: "7 Hari",
+    beratKg: 7475,
+    biayaPengiriman: null,
+    estimasiPengiriman: new Date("2021-06-02"),
+    nettoMU: 156875000,
+    nomorPO: "2102.0910.00029",
+    pajak: "Tanpa Pajak",
+    statusApproval: "Disetujui",
+    statusDokumen: "Tertutup",
+    supplier: "KENCANA PUSAT",
+    tanggal: new Date("2021-05-28"),
+    tanggalBerlaku: new Date("2021-06-04"),
+    termin: "Net 1",
+  },
+  {
+    beratKg: 8200,
+    biayaPengiriman: null,
+    estimasiPengiriman: new Date("2021-06-02"),
+    nettoMU: 187600000,
+    nomorPO: "2102.0910.00030",
+    pajak: "Tanpa Pajak",
+    statusApproval: "Disetujui",
+    statusDokumen: "Tertutup",
+    supplier: "KENCANA PUSAT",
+    tanggal: new Date("2021-05-28"),
+    tanggalBerlaku: new Date("2021-06-04"),
+    termin: "Net 1",
+  },
+  {
+    beratKg: 20150,
+    biayaPengiriman: null,
+    estimasiPengiriman: new Date("2021-06-07"),
+    nettoMU: 53824900,
+    nomorPO: "2102.0910.00031",
+    pajak: "Tanpa Pajak",
+    statusApproval: "Disetujui",
+    statusDokumen: "Tertutup",
+    supplier: "KENCANA PUSAT",
+    tanggal: new Date("2021-05-28"),
+    tanggalBerlaku: new Date("2021-06-04"),
+    termin: "Net 1",
   },
 ];
 
 export const Content: FC = (): ReactElement => {
-  const pageSettings = { pageSize: 8 };
+  const { setIsFilterOpen } = useFilterLayoutContext();
+
+  const pageSettings = { pageSize: 50, pageSizes: [10, 20, 50, 100, "All"] };
 
   return (
-    <section className="flex h-full flex-1 flex-col overflow-hidden rounded-md border border-gray-300 bg-white p-2">
-      <div className="flex flex-1 flex-col gap-1 overflow-y-auto">
-        <h2 className="text-lg font-semibold text-gray-900">Order Pembelian (PO)</h2>
-
-        <div className="flex-1 overflow-hidden rounded-md border border-gray-200">
-          <GridComponent
-            allowPaging={true}
-            allowResizing={true}
-            allowSorting={true}
-            clipMode="EllipsisWithTooltip"
-            dataSource={orderPembelianData}
-            height={"100%"}
-            pageSettings={pageSettings}
-            width="100%"
-          >
-            <ColumnsDirective>
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="nomorPO" headerText="No. PO" width="120" />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="tanggal" format="dd/MM/yyyy" headerText="Tanggal" type="date" width="120" />
-              <ColumnDirective
-                clipMode="EllipsisWithTooltip"
-                field="tanggalBerlaku"
-                format="dd/MM/yyyy"
-                headerText="Tgl. Berlaku"
-                type="date"
-                width="130"
-              />
-              <ColumnDirective
-                clipMode="EllipsisWithTooltip"
-                field="estimasiPengiriman"
-                format="dd/MM/yyyy"
-                headerText="Est. Pengiriman"
-                type="date"
-                width="150"
-              />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="supplier" headerText="Supplier" width="220" />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="termin" headerText="Termin" textAlign="Center" width="110" />
-              <ColumnDirective
-                clipMode="EllipsisWithTooltip"
-                field="biayaPengiriman"
-                format="N2"
-                headerText="Biaya Pengiriman"
-                textAlign="Right"
-                width="150"
-              />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="nettoMU" format="N2" headerText="Netto (MU)" textAlign="Right" width="130" />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="pajak" headerText="Pajak" textAlign="Center" width="110" />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="beratKg" format="N2" headerText="Berat (Kg)" textAlign="Right" width="120" />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="statusDokumen" headerText="Status Dok." width="120" />
-              <ColumnDirective clipMode="EllipsisWithTooltip" field="statusApproval" headerText="Status Approval" width="140" />
-            </ColumnsDirective>
-
-            <Inject services={[Page, Sort, Resize]} />
-          </GridComponent>
-        </div>
+    <>
+      <div className="flex gap-1 px-2 py-1">
+        <button
+          className="flex cursor-pointer items-center justify-between rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95"
+          onClick={() => setIsFilterOpen((prev) => !prev)}
+        >
+          Filter
+        </button>
+        <button className="flex cursor-pointer items-center justify-between rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95">
+          Baru
+        </button>
+        <button className="flex cursor-pointer items-center justify-between rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95">
+          Ubah
+        </button>
       </div>
-    </section>
+
+      <div className="flex-1 overflow-hidden px-2 pb-2">
+        <GridComponent
+          allowPaging={true}
+          allowResizing={true}
+          allowSorting={true}
+          autoFit={true}
+          clipMode="EllipsisWithTooltip"
+          dataSource={orderPembelianData}
+          gridLines="Both"
+          height={"100%"}
+          pageSettings={pageSettings}
+          rowHeight={22}
+          width="100%"
+        >
+          <ColumnsDirective>
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="nomorPO"
+              headerText="No. PO"
+              headerTextAlign="Center"
+              textAlign="Center"
+              width="150"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="tanggal"
+              format="dd-MM-yyyy"
+              headerText="Tanggal"
+              headerTextAlign="Center"
+              textAlign="Center"
+              type="date"
+              width="120"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="tanggalBerlaku"
+              format="dd-MM-yyyy"
+              headerText="Tgl. Berlaku"
+              headerTextAlign="Center"
+              textAlign="Center"
+              type="date"
+              width="130"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="estimasiPengiriman"
+              format="dd-MM-yyyy"
+              headerText="Est. Pengiriman"
+              headerTextAlign="Center"
+              textAlign="Center"
+              type="date"
+              width="150"
+            />
+            <ColumnDirective clipMode="EllipsisWithTooltip" field="supplier" headerText="Supplier" headerTextAlign="Center" width="220" />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="termin"
+              headerText="Termin"
+              headerTextAlign="Center"
+              textAlign="Center"
+              width="110"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="biayaPengiriman"
+              headerText="Biaya Pengiriman"
+              headerTextAlign="Center"
+              textAlign="Right"
+              width="150"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="nettoMU"
+              headerText="Netto (MU)"
+              headerTextAlign="Center"
+              textAlign="Right"
+              width="130"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="pajak"
+              headerText="Pajak"
+              headerTextAlign="Center"
+              textAlign="Center"
+              width="110"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="beratKg"
+              headerText="Berat (Kg)"
+              headerTextAlign="Center"
+              textAlign="Right"
+              width="120"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="statusDokumen"
+              headerText="Status Dok."
+              headerTextAlign="Center"
+              textAlign="Center"
+              width="120"
+            />
+            <ColumnDirective
+              clipMode="EllipsisWithTooltip"
+              field="statusApproval"
+              headerText="Status Approval"
+              headerTextAlign="Center"
+              textAlign="Center"
+              width="140"
+            />
+          </ColumnsDirective>
+
+          <Inject services={[Page, Sort, Resize]} />
+        </GridComponent>
+      </div>
+    </>
   );
 };
