@@ -183,13 +183,13 @@ export const Aside: FC = (): ReactElement => {
                   <Fragment key={name}>
                     <style>
                       {`
-                      .e-checkbox-wrapper input.${name} ~ span.e-label {
+                      .e-checkbox-wrapper #${name} ~ span.e-label {
                         background: oklch(86.5% 0.127 207.078) !important;
                       }
                       `}
                     </style>
 
-                    <CheckBoxComponent change={handleCheckChange(name)} checked={filter[name] as boolean} className={name} label={label} />
+                    <CheckBoxComponent change={handleCheckChange(name)} checked={filter[name] as boolean} id={name} label={label} />
                   </Fragment>
                 );
               case "pembatalanOrder":
@@ -197,13 +197,13 @@ export const Aside: FC = (): ReactElement => {
                   <Fragment key={name}>
                     <style>
                       {`
-                      .e-checkbox-wrapper input.${name} ~ span.e-label {
+                      .e-checkbox-wrapper #${name} ~ span.e-label {
                         background: oklch(80.8% 0.114 19.571) !important;
                       }
                       `}
                     </style>
 
-                    <CheckBoxComponent change={handleCheckChange(name)} checked={filter[name] as boolean} className={name} label={label} />
+                    <CheckBoxComponent change={handleCheckChange(name)} checked={filter[name] as boolean} id={name} label={label} />
                   </Fragment>
                 );
               case "sudahAccDireks":
@@ -211,13 +211,13 @@ export const Aside: FC = (): ReactElement => {
                   <Fragment key={name}>
                     <style>
                       {`
-                      .e-checkbox-wrapper input.${name} ~ span.e-label {
+                      .e-checkbox-wrapper #${name} ~ span.e-label {
                         background: oklch(87.1% 0.15 154.449) !important;
                       }
                       `}
                     </style>
 
-                    <CheckBoxComponent change={handleCheckChange(name)} checked={filter[name] as boolean} className={name} label={label} />
+                    <CheckBoxComponent change={handleCheckChange(name)} checked={filter[name] as boolean} id={name} label={label} />
                   </Fragment>
                 );
               default:
