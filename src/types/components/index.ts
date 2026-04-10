@@ -1,4 +1,13 @@
-import { AVATAR_SIZE_OPTIONS, EXAMPLEA_COLOR_OPTIONS, EXAMPLEA_SIZE_OPTIONS, EXAMPLEA_VARIANT_OPTIONS, EXAMPLEC_COLOR_OPTIONS } from "@/src/libs";
+import {
+  AVATAR_SIZE_OPTIONS,
+  BUTTON_COLOR_OPTIONS,
+  BUTTON_SIZE_OPTIONS,
+  BUTTON_VARIANT_OPTIONS,
+  EXAMPLEA_COLOR_OPTIONS,
+  EXAMPLEA_SIZE_OPTIONS,
+  EXAMPLEA_VARIANT_OPTIONS,
+  EXAMPLEC_COLOR_OPTIONS,
+} from "@/src/libs";
 
 // ----------------------------
 
@@ -13,3 +22,9 @@ export type TExampleCColor = (typeof EXAMPLEC_COLOR_OPTIONS)[number];
 // ----------------------------
 
 export type TAvatarSize = (typeof AVATAR_SIZE_OPTIONS)[number];
+
+// ----------------------------
+
+export type TButtonVariant = (typeof BUTTON_VARIANT_OPTIONS)[number];
+export type TButtonColor = (typeof BUTTON_COLOR_OPTIONS)[number];
+export type TButtonSize = (typeof BUTTON_SIZE_OPTIONS)[number];
