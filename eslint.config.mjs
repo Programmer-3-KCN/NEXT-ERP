@@ -117,6 +117,11 @@ const eslintConfig = defineConfig([
     },
   },
   eslintPluginPrettierRecommended,
+  {
+    rules: {
+      "prettier/prettier": "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;
