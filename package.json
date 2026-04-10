@@ -23,6 +23,7 @@
     "cpenv": "cp .env.example .env.local",
     "base64": "openssl rand -base64 33",
     "commit": "git-cz",
+    "activate": "bun x syncfusion-license activate",
     "prepare": "husky"
   },
   "config": {
