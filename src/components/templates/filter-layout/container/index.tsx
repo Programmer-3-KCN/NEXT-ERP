@@ -32,7 +32,8 @@ export const useFilterLayoutContext = (): TContext => {
   return context;
 };
 
-interface I extends DetailedHTMLProps<Omit<HTMLAttributes<HTMLDivElement>, "children" | "className">, HTMLDivElement>, Readonly<PropsWithChildren> {
+interface I
+  extends DetailedHTMLProps<Omit<HTMLAttributes<HTMLDivElement>, "children" | "className" | "id">, HTMLDivElement>, Readonly<PropsWithChildren> {
   className?: string;
 }
 
@@ -41,7 +42,7 @@ export const FilterLayoutContainer: FC<I> = ({ children, className, ...props }):
 
   return (
     <FilterLayoutContext.Provider value={{ isFilterOpen: isFilterOpen, setIsFilterOpen: setIsFilterOpen }}>
-      <div className={twm("flex flex-1 overflow-hidden", className)} {...props}>
+      <div className={twm("flex flex-1 overflow-hidden", className)} id="dialog-target" {...props}>
         {children}
       </div>
     </FilterLayoutContext.Provider>

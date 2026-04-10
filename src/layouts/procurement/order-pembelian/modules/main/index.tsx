@@ -6,6 +6,9 @@ import { FC, ReactElement } from "react";
 
 import { useFilterLayoutContext } from "@/src/components";
 
+import { useLocalContext } from "../../context";
+import { JenisBarang, JenisTrasaksi } from "./batches";
+
 type TOrderPembelianRow = {
   beratKg: number;
   biayaPengiriman: null | number;
@@ -123,6 +126,7 @@ const orderPembelianData: TOrderPembelianRow[] = [
 ];
 
 export const Main: FC = (): ReactElement => {
+  const { setModal } = useLocalContext();
   const { setIsFilterOpen } = useFilterLayoutContext();
 
   const pageSettings = { pageSize: 50, pageSizes: [10, 20, 50, 100, "All"] };
@@ -145,7 +149,10 @@ export const Main: FC = (): ReactElement => {
         >
           Filter
         </button>
-        <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95">
+        <button
+          className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95"
+          onClick={() => setModal((prev) => ({ ...prev, jenisTransaksi: true }))}
+        >
           Baru
         </button>
         <button className="flex cursor-pointer items-center rounded-sm px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 hover:bg-blue-50 hover:text-blue-600 active:scale-95">
@@ -288,6 +295,9 @@ export const Main: FC = (): ReactElement => {
           <Inject services={[Page, Sort, Resize]} />
         </GridComponent>
       </div>
+
+      <JenisTrasaksi />
+      <JenisBarang />
     </>
   );
 };

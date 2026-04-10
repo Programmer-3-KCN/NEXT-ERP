@@ -1,1 +1,2 @@
-export * from "./content";
+export * from "./jenis-barang";
+export * from "./jenis-transaksi";

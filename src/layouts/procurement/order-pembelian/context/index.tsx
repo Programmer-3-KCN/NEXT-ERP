@@ -33,6 +33,11 @@ export interface IFilterState {
   tanggalTo: Date | null;
 }
 
+export interface IModalState {
+  jenisBarang: boolean;
+  jenisTransaksi: boolean;
+}
+
 const INITIAL_FILTER_DATA: IFilterState = {
   belumAccDireks: false,
   kelompokSupplier: "semua",
@@ -64,9 +69,16 @@ const INITIAL_FILTER_DATA: IFilterState = {
   tanggalTo: null,
 };
 
+const INITIAL_MODAL_DATA: IModalState = {
+  jenisBarang: false,
+  jenisTransaksi: false,
+};
+
 type TLocalContext = Readonly<{
   filter: IFilterState;
+  modal: IModalState;
   setFilter: Dispatch<SetStateAction<IFilterState>>;
+  setModal: Dispatch<SetStateAction<IModalState>>;
 }>;
 
 const LocalContext = createContext<null | TLocalContext>(null);
@@ -85,6 +97,7 @@ type T = Readonly<PropsWithChildren>;
 
 export const LocalContextProvider: FC<T> = (props): ReactElement => {
   const [filter, setFilter] = useState<IFilterState>(INITIAL_FILTER_DATA);
+  const [modal, setModal] = useState<IModalState>(INITIAL_MODAL_DATA);
 
-  return <LocalContext.Provider value={{ filter, setFilter }}>{props.children}</LocalContext.Provider>;
+  return <LocalContext.Provider value={{ filter, modal, setFilter, setModal }}>{props.children}</LocalContext.Provider>;
 };
