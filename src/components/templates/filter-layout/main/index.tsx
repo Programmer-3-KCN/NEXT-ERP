@@ -7,7 +7,7 @@ interface I extends DetailedHTMLProps<Omit<HTMLAttributes<HTMLElement>, "childre
 }
 
 export const FilterLayoutMain: FC<I> = ({ children, className, ...props }): ReactElement => (
-  <main className={twm("flex-1 overflow-auto p-1", className)} {...props}>
+  <main className={twm("flex-1 overflow-hidden p-1", className)} {...props}>
     {children}
   </main>
 );

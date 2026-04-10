@@ -7,7 +7,7 @@ interface I extends DetailedHTMLProps<Omit<HTMLAttributes<HTMLElement>, "childre
 }
 
 export const FilterLayoutAsideContentContainer: FC<I> = ({ children, className, ...props }): ReactElement => (
-  <section className={twm("flex max-h-full flex-1 flex-col gap-1 overflow-y-auto px-3 py-1", className)} {...props}>
+  <section className={twm("flex flex-1 flex-col gap-1 overflow-y-auto p-2", className)} {...props}>
     {children}
   </section>
 );

@@ -61,7 +61,7 @@ export const Header: FC = (): ReactElement => {
   };
 
   return (
-    <header className="flex h-16 w-full shrink-0 items-center justify-between gap-5 bg-white px-5">
+    <header className="flex h-16 w-full shrink-0 items-center justify-between gap-5 border-b border-gray-300 bg-white px-5">
       <div className="flex items-center gap-3">
         <Image alt="NEXT ERP" height={30} src="/assets/images/logos/NEXT-ERP.png" width={30} />
 
@@ -76,7 +76,6 @@ export const Header: FC = (): ReactElement => {
                   aria-haspopup="menu"
                   className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition duration-100 hover:bg-blue-50 hover:text-blue-600 ${isOpen ? "bg-blue-50 text-blue-600" : ""}`}
                   onClick={() => handleOpenMenu(dt.label)}
-                  type="button"
                 >
                   <dt.icon size={16} />
                   <span>{dt.label}</span>
@@ -93,10 +92,7 @@ export const Header: FC = (): ReactElement => {
                         return (
                           <div className="group relative" key={subItemLabel}>
                             {hasChildren ? (
-                              <button
-                                className="flex w-full items-center justify-between rounded-md px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 group-hover:bg-blue-50 group-hover:text-blue-600"
-                                type="button"
-                              >
+                              <button className="flex w-full items-center justify-between rounded-md px-2 py-1 text-left text-sm whitespace-nowrap transition duration-100 group-hover:bg-blue-50 group-hover:text-blue-600">
                                 <span>{subItemLabel}</span>
                                 {hasChildren ? <ChevronRight size={14} /> : null}
                               </button>
@@ -137,7 +133,7 @@ export const Header: FC = (): ReactElement => {
       </div>
 
       <div className="flex gap-1">
-        <div className="flex items-center gap-3 rounded-md border bg-slate-50 px-2 py-1">
+        <div className="flex items-center gap-3 rounded-md border border-gray-300 bg-blue-50 px-2 py-1">
           <div className="flex size-9 items-center justify-center rounded-full bg-blue-500 text-white">
             <CircleUser size={30} />
           </div>
