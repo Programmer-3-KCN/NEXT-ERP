@@ -209,7 +209,7 @@ export const Main: FC = (): ReactElement => {
               field="nomorPO"
               headerText="No. PO"
               headerTextAlign="Center"
-              textAlign="Center"
+              textAlign="Left"
               width="150"
             />
             <ColumnDirective
@@ -254,6 +254,7 @@ export const Main: FC = (): ReactElement => {
             <ColumnDirective
               clipMode="EllipsisWithTooltip"
               field="biayaPengiriman"
+              format={"N0"}
               headerText="Biaya Pengiriman"
               headerTextAlign="Center"
               textAlign="Right"
@@ -262,6 +263,7 @@ export const Main: FC = (): ReactElement => {
             <ColumnDirective
               clipMode="EllipsisWithTooltip"
               field="nettoMU"
+              format={"N0"}
               headerText="Netto (MU)"
               headerTextAlign="Center"
               textAlign="Right"
@@ -278,6 +280,7 @@ export const Main: FC = (): ReactElement => {
             <ColumnDirective
               clipMode="EllipsisWithTooltip"
               field="beratKg"
+              format={"N0"}
               headerText="Berat (Kg)"
               headerTextAlign="Center"
               textAlign="Right"
