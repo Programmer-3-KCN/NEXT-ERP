@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, ReactElement, useEffect, useRef, useState } from "react";
 
+import { formatMenuHref } from "@/src/helpers";
 import { useWindowSize } from "@/src/hooks";
 import { MENU_DATA } from "@/src/libs";
 
@@ -16,22 +17,6 @@ interface ISubItemChildren {
 }
 
 const hasNestedItems = (item: ISubItemChildren | string): item is ISubItemChildren => typeof item !== "string";
-
-const formatMenuHref = (...segments: string[]): string => {
-  const formattedSegments = segments.map((segment) =>
-    segment
-      .toLowerCase()
-      .replace(/\s*\([^)]*\)/g, "")
-      .replace(/&/g, "")
-      .replace(/[^a-z0-9\s-]/g, "")
-      .trim()
-      .replace(/\s+/g, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, ""),
-  );
-
-  return `/${formattedSegments.join("/")}`;
-};
 
 export const Header: FC = (): ReactElement => {
   const [openDesktopMenu, setOpenDesktopMenu] = useState<null | string>(null);
@@ -45,12 +30,12 @@ export const Header: FC = (): ReactElement => {
   const isCompactHeaderMode = viewportWidth <= 1495 || viewportHeight <= 885;
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent): void => {
-      if (!(event.target instanceof Node) || !menuRef.current) {
+    const handleClickOutside = (e: MouseEvent): void => {
+      if (!(e.target instanceof Node) || !menuRef.current) {
         return;
       }
 
-      if (!menuRef.current.contains(event.target)) {
+      if (!menuRef.current.contains(e.target)) {
         setOpenDesktopMenu(null);
         setOpenDesktopSubMenu(null);
         setIsMobileMenuOpen(false);
@@ -91,7 +76,7 @@ export const Header: FC = (): ReactElement => {
   };
 
   const handleToggleDesktopMenu = (label: string): void => {
-    setOpenDesktopMenu((prevState) => (prevState === label ? null : label));
+    setOpenDesktopMenu((prev) => (prev === label ? null : label));
     setOpenDesktopSubMenu(null);
   };
 
@@ -105,7 +90,7 @@ export const Header: FC = (): ReactElement => {
   };
 
   const handleToggleDesktopSubMenu = (label: string): void => {
-    setOpenDesktopSubMenu((prevState) => (prevState === label ? null : label));
+    setOpenDesktopSubMenu((prev) => (prev === label ? null : label));
   };
 
   const handleCloseAllMenus = (): void => {
@@ -117,23 +102,23 @@ export const Header: FC = (): ReactElement => {
   };
 
   const handleToggleMobileMenu = (): void => {
-    setIsMobileMenuOpen((prevState) => {
-      if (prevState) {
+    setIsMobileMenuOpen((prev) => {
+      if (prev) {
         setOpenMobileSection(null);
         setOpenMobileSubMenu(null);
       }
 
-      return !prevState;
+      return !prev;
     });
   };
 
   const handleToggleMobileSection = (label: string): void => {
-    setOpenMobileSection((prevState) => (prevState === label ? null : label));
+    setOpenMobileSection((prev) => (prev === label ? null : label));
     setOpenMobileSubMenu(null);
   };
 
   const handleToggleMobileSubMenu = (label: string): void => {
-    setOpenMobileSubMenu((prevState) => (prevState === label ? null : label));
+    setOpenMobileSubMenu((prev) => (prev === label ? null : label));
   };
 
   return (

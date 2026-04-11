@@ -110,10 +110,12 @@ export const Main: FC = (): ReactElement => {
                 <Button className="justify-start gap-0" color="blue" size="sm" variant="ghost">
                   <ChevronRight size={14} /> Update File
                 </Button>
+
                 <Button color="green" size="sm" variant="ghost">
                   <FileText size={14} />
                   Acc. DIREKSI
                 </Button>
+
                 <div className="relative" ref={morePrintMenuRef}>
                   <div className={ButtonTWM({ className: "w-full gap-0.5 active:scale-100", color: "black-blue", size: "sm", variant: "ghost" })}>
                     <button className="cursor-pointer active:scale-95">Cetak</button>
@@ -130,17 +132,20 @@ export const Main: FC = (): ReactElement => {
                   </div>
 
                   {isMorePrintMenuOpen ? (
-                    <div className="absolute top-0 right-full z-30 max-w-87.5 overflow-auto rounded-md border bg-white p-1 shadow-lg">
-                      <div className="flex w-fit flex-col gap-1">
-                        {PRINT_OPTION_DATA.map((item) => (
-                          <Button color="black-blue" key={item} onClick={() => setIsMorePrintMenuOpen(false)} size="sm" variant="ghost">
-                            {item}
-                          </Button>
-                        ))}
+                    <div className="absolute top-0 right-full z-30 max-w-87.5 overflow-hidden rounded-md border bg-white p-1 shadow-lg">
+                      <div className="overflow-auto">
+                        <div className="flex w-fit flex-col gap-1">
+                          {PRINT_OPTION_DATA.map((item) => (
+                            <Button color="black-blue" key={item} onClick={() => setIsMorePrintMenuOpen(false)} size="sm" variant="ghost">
+                              {item}
+                            </Button>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   ) : null}
                 </div>
+
                 <Button color="black-blue" size="sm" variant="ghost">
                   Detail Dok
                 </Button>
@@ -152,10 +157,12 @@ export const Main: FC = (): ReactElement => {
         <Button className="gap-0 max-[1090px]:hidden" color="blue" size="sm" variant="ghost">
           <ChevronRight size={14} /> Update File
         </Button>
+
         <Button className="max-[1090px]:hidden" color="green" size="sm" variant="ghost">
           <FileText size={14} />
           Acc. DIREKSI
         </Button>
+
         <div className="relative max-[1090px]:hidden" ref={printMenuRef}>
           <div className={ButtonTWM({ className: "gap-0.5 active:scale-100", color: "black-blue", size: "sm", variant: "ghost" })}>
             <button className="cursor-pointer active:scale-95">Cetak</button>
@@ -183,6 +190,7 @@ export const Main: FC = (): ReactElement => {
             </div>
           ) : null}
         </div>
+
         <Button className="max-[1090px]:hidden" color="black-blue" size="sm" variant="ghost">
           Detail Dok
         </Button>
