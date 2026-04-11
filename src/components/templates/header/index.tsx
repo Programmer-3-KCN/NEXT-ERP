@@ -214,7 +214,7 @@ export const Header: FC = (): ReactElement => {
             </Button>
 
             {isMobileMenuOpen ? (
-              <div className="absolute top-full left-0 z-30 mt-2 w-[min(24rem,calc(100vw-2.5rem))] rounded-md border bg-white p-2 shadow-lg">
+              <div className="absolute top-full left-0 z-30 mt-1 w-[min(24rem,calc(100vw-2.5rem))] rounded-md border bg-white p-2 shadow-lg">
                 <div className="flex max-h-[70vh] flex-col gap-2 overflow-y-auto">
                   {MENU_DATA.map((dt) => {
                     const isSectionOpen = openMobileSection === dt.label;
