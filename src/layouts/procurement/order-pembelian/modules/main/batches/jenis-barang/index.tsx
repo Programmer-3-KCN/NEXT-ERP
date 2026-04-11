@@ -6,7 +6,7 @@ import { Button } from "@/src/components";
 import { useLocalContext } from "../../../../context";
 
 export const JenisBarang: FC = (): ReactElement => {
-  const { modal, setModal } = useLocalContext();
+  const { modal, setModal, setModalParameter } = useLocalContext();
 
   return (
     <DialogComponent
@@ -22,17 +22,38 @@ export const JenisBarang: FC = (): ReactElement => {
     >
       <section className="flex flex-col items-center gap-3">
         <div className="flex flex-col gap-1">
-          <Button className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1" color="gray" size="sm" variant="semi">
+          <Button
+            className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
+            color="gray"
+            onClick={() => {
+              setModal((prev) => ({ ...prev, baru: true, jenisBarang: false }));
+              setModalParameter((prev) => ({ ...prev, jenisBarang: "barang-produksi" }));
+            }}
+            size="sm"
+            variant="semi"
+          >
             Barang Produksi
           </Button>
-          <Button className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1" color="gray" size="sm" variant="semi">
+          <Button
+            className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
+            color="gray"
+            onClick={() => {
+              setModal((prev) => ({ ...prev, baru: true, jenisBarang: false }));
+              setModalParameter((prev) => ({ ...prev, jenisBarang: "barang-jadi" }));
+            }}
+            size="sm"
+            variant="semi"
+          >
             Barang Jadi
           </Button>
         </div>
         <Button
           className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
           color="gray"
-          onClick={() => setModal((prev) => ({ ...prev, jenisBarang: false }))}
+          onClick={() => {
+            setModal((prev) => ({ ...prev, jenisBarang: false }));
+            setModalParameter((prev) => ({ ...prev, jenisBarang: null }));
+          }}
           size="sm"
           variant="semi"
         >

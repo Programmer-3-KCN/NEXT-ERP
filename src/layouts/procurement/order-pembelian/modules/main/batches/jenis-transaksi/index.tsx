@@ -6,7 +6,7 @@ import { Button } from "@/src/components";
 import { useLocalContext } from "../../../../context";
 
 export const JenisTrasaksi: FC = (): ReactElement => {
-  const { modal, setModal } = useLocalContext();
+  const { modal, setModal, setModalParameter } = useLocalContext();
 
   return (
     <DialogComponent
@@ -25,7 +25,10 @@ export const JenisTrasaksi: FC = (): ReactElement => {
           <Button
             className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
             color="gray"
-            onClick={() => setModal((prev) => ({ ...prev, jenisBarang: true, jenisTransaksi: false }))}
+            onClick={() => {
+              setModal((prev) => ({ ...prev, jenisBarang: true, jenisTransaksi: false }));
+              setModalParameter((prev) => ({ ...prev, jenisTransaksi: "kontrak" }));
+            }}
             size="sm"
             variant="semi"
           >
@@ -34,7 +37,10 @@ export const JenisTrasaksi: FC = (): ReactElement => {
           <Button
             className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
             color="gray"
-            onClick={() => setModal((prev) => ({ ...prev, jenisBarang: true, jenisTransaksi: false }))}
+            onClick={() => {
+              setModal((prev) => ({ ...prev, jenisBarang: true, jenisTransaksi: false }));
+              setModalParameter((prev) => ({ ...prev, jenisTransaksi: "non-kontrak" }));
+            }}
             size="sm"
             variant="semi"
           >
@@ -44,7 +50,10 @@ export const JenisTrasaksi: FC = (): ReactElement => {
         <Button
           className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
           color="gray"
-          onClick={() => setModal((prev) => ({ ...prev, jenisTransaksi: false }))}
+          onClick={() => {
+            setModal((prev) => ({ ...prev, jenisTransaksi: false }));
+            setModalParameter((prev) => ({ ...prev, jenisTransaksi: null }));
+          }}
           size="sm"
           variant="semi"
         >

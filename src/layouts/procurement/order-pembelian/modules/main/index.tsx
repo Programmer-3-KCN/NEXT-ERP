@@ -8,7 +8,7 @@ import { Button, ButtonTWM, useFilterLayoutContext } from "@/src/components";
 import { ORDER_PEMBELIAN_DATA } from "@/src/libs";
 
 import { useLocalContext } from "../../context";
-import { JenisBarang, JenisTrasaksi } from "./batches";
+import { Baru, JenisBarang, JenisTrasaksi } from "./batches";
 
 const PRINT_OPTION_DATA = [
   "Form Surat Order Pembelian Dengan Harga - (PKP)",
@@ -310,6 +310,7 @@ export const Main: FC = (): ReactElement => {
 
       <JenisTrasaksi />
       <JenisBarang />
+      <Baru />
     </>
   );
 };

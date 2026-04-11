@@ -35,12 +35,14 @@ const formatMenuHref = (...segments: string[]): string => {
 
 export const Header: FC = (): ReactElement => {
   const [openDesktopMenu, setOpenDesktopMenu] = useState<null | string>(null);
+  const [openDesktopSubMenu, setOpenDesktopSubMenu] = useState<null | string>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMobileSection, setOpenMobileSection] = useState<null | string>(null);
   const [openMobileSubMenu, setOpenMobileSubMenu] = useState<null | string>(null);
+  const [canHover, setCanHover] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const { height: viewportHeight, width: viewportWidth } = useWindowSize();
-  const isCompactHeaderMode = viewportWidth <= 1490 || viewportHeight <= 885;
+  const isCompactHeaderMode = viewportWidth <= 1495 || viewportHeight <= 885;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
@@ -50,6 +52,7 @@ export const Header: FC = (): ReactElement => {
 
       if (!menuRef.current.contains(event.target)) {
         setOpenDesktopMenu(null);
+        setOpenDesktopSubMenu(null);
         setIsMobileMenuOpen(false);
         setOpenMobileSection(null);
         setOpenMobileSubMenu(null);
@@ -63,16 +66,51 @@ export const Header: FC = (): ReactElement => {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    const updateCanHover = (): void => {
+      setCanHover(mediaQuery.matches);
+    };
+
+    updateCanHover();
+    mediaQuery.addEventListener("change", updateCanHover);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateCanHover);
+    };
+  }, []);
+
   const handleOpenDesktopMenu = (label: string): void => {
     setOpenDesktopMenu(label);
+    setOpenDesktopSubMenu(null);
+  };
+
+  const handleToggleDesktopMenu = (label: string): void => {
+    setOpenDesktopMenu((prevState) => (prevState === label ? null : label));
+    setOpenDesktopSubMenu(null);
   };
 
   const handleCloseDesktopMenu = (): void => {
     setOpenDesktopMenu(null);
+    setOpenDesktopSubMenu(null);
+  };
+
+  const handleOpenDesktopSubMenu = (label: string): void => {
+    setOpenDesktopSubMenu(label);
+  };
+
+  const handleToggleDesktopSubMenu = (label: string): void => {
+    setOpenDesktopSubMenu((prevState) => (prevState === label ? null : label));
   };
 
   const handleCloseAllMenus = (): void => {
     setOpenDesktopMenu(null);
+    setOpenDesktopSubMenu(null);
     setIsMobileMenuOpen(false);
     setOpenMobileSection(null);
     setOpenMobileSubMenu(null);
@@ -116,13 +154,18 @@ export const Header: FC = (): ReactElement => {
                   : "left-full";
 
               return (
-                <div className="relative" key={dt.label} onMouseEnter={() => handleOpenDesktopMenu(dt.label)} onMouseLeave={handleCloseDesktopMenu}>
+                <div
+                  className="relative"
+                  key={dt.label}
+                  onMouseEnter={canHover ? () => handleOpenDesktopMenu(dt.label) : undefined}
+                  onMouseLeave={canHover ? handleCloseDesktopMenu : undefined}
+                >
                   <Button
                     aria-expanded={isOpen}
                     aria-haspopup="menu"
                     className={`cursor-default rounded-md px-3 py-2 ${isOpen ? "bg-blue-50 text-blue-600" : ""}`}
                     color="black-blue"
-                    onClick={() => handleOpenDesktopMenu(dt.label)}
+                    onClick={() => (canHover ? handleOpenDesktopMenu(dt.label) : handleToggleDesktopMenu(dt.label))}
                     size="sm"
                     variant="ghost"
                   >
@@ -140,18 +183,30 @@ export const Header: FC = (): ReactElement => {
                         {dt.subItems.map((subItem) => {
                           const hasChildren = hasNestedItems(subItem);
                           const subItemLabel = hasChildren ? subItem.label : subItem;
+                          const desktopSubMenuKey = `${dt.label}-${subItemLabel}`;
+                          const isDesktopSubMenuOpen = openDesktopSubMenu === desktopSubMenuKey;
 
                           return (
                             <div className="group relative" key={subItemLabel}>
                               {hasChildren ? (
                                 <Button
-                                  className="w-full cursor-default group-hover:bg-blue-50 group-hover:text-blue-600"
+                                  aria-expanded={isDesktopSubMenuOpen}
+                                  className={`w-full cursor-default ${canHover ? "group-hover:bg-blue-50 group-hover:text-blue-600" : ""} ${isDesktopSubMenuOpen ? "bg-blue-50 text-blue-600" : ""}`}
                                   color="black-blue"
+                                  onClick={() =>
+                                    canHover ? handleOpenDesktopSubMenu(desktopSubMenuKey) : handleToggleDesktopSubMenu(desktopSubMenuKey)
+                                  }
                                   size="sm"
+                                  type="button"
                                   variant="ghost"
                                 >
                                   <span>{subItemLabel}</span>
-                                  <ChevronRight size={14} />
+                                  <ChevronRight
+                                    className={
+                                      isDesktopSubMenuOpen ? "rotate-90 transition-transform duration-100" : "transition-transform duration-100"
+                                    }
+                                    size={14}
+                                  />
                                 </Button>
                               ) : (
                                 <Link
@@ -169,7 +224,9 @@ export const Header: FC = (): ReactElement => {
 
                               {hasChildren ? (
                                 <div
-                                  className={`invisible absolute top-0 z-30 overflow-hidden rounded-md border bg-white p-2 opacity-0 shadow-lg group-hover:visible group-hover:opacity-100 ${nestedMenuPositionClass}`}
+                                  className={`absolute top-0 z-30 overflow-hidden rounded-md border bg-white p-2 shadow-lg ${nestedMenuPositionClass} ${
+                                    isDesktopSubMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+                                  } ${canHover ? "group-hover:visible group-hover:opacity-100" : ""}`}
                                 >
                                   <div className="flex max-h-96 min-w-64 flex-col gap-1 overflow-y-auto">
                                     {subItem.children.map((childItem) => (
@@ -316,9 +373,9 @@ export const Header: FC = (): ReactElement => {
           <div className="flex size-9 items-center justify-center rounded-full bg-blue-500 text-white">
             <CircleUser size={30} />
           </div>
-          <div className="flex flex-col leading-tight max-[640px]:hidden">
-            <span className="text-[10px] font-semibold tracking-[0.2em] text-gray-500 uppercase">ROLE</span>
-            <span className="text-sm font-semibold text-black">Administrator</span>
+          <div className="-mb-0.5 flex flex-col leading-tight max-[640px]:hidden">
+            <span className="text-[8px] font-semibold tracking-[0.2em] text-gray-500 uppercase">USER ID</span>
+            <span className="max-w-25 truncate text-sm font-semibold text-black">Administrator</span>
           </div>
           <span className="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-600 max-[480px]:hidden">999</span>
         </div>

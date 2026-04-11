@@ -34,8 +34,14 @@ export interface IFilterState {
 }
 
 export interface IModalState {
+  baru: boolean;
   jenisBarang: boolean;
   jenisTransaksi: boolean;
+}
+
+export interface IModalParameter {
+  jenisBarang: "barang-jadi" | "barang-produksi" | null;
+  jenisTransaksi: "kontrak" | "non-kontrak" | null;
 }
 
 const INITIAL_FILTER_DATA: IFilterState = {
@@ -70,15 +76,23 @@ const INITIAL_FILTER_DATA: IFilterState = {
 };
 
 const INITIAL_MODAL_DATA: IModalState = {
+  baru: false,
   jenisBarang: false,
   jenisTransaksi: false,
+};
+
+const INITIAL_MODAL_PARAMETER: IModalParameter = {
+  jenisBarang: null,
+  jenisTransaksi: null,
 };
 
 type TLocalContext = Readonly<{
   filter: IFilterState;
   modal: IModalState;
+  modalParameter: IModalParameter;
   setFilter: Dispatch<SetStateAction<IFilterState>>;
   setModal: Dispatch<SetStateAction<IModalState>>;
+  setModalParameter: Dispatch<SetStateAction<IModalParameter>>;
 }>;
 
 const LocalContext = createContext<null | TLocalContext>(null);
@@ -98,6 +112,9 @@ type T = Readonly<PropsWithChildren>;
 export const LocalContextProvider: FC<T> = (props): ReactElement => {
   const [filter, setFilter] = useState<IFilterState>(INITIAL_FILTER_DATA);
   const [modal, setModal] = useState<IModalState>(INITIAL_MODAL_DATA);
+  const [modalParameter, setModalParameter] = useState<IModalParameter>(INITIAL_MODAL_PARAMETER);
 
-  return <LocalContext.Provider value={{ filter, modal, setFilter, setModal }}>{props.children}</LocalContext.Provider>;
+  return (
+    <LocalContext.Provider value={{ filter, modal, modalParameter, setFilter, setModal, setModalParameter }}>{props.children}</LocalContext.Provider>
+  );
 };

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import { registerLicense } from "@syncfusion/ej2-base";
 import { FC, PropsWithChildren, ReactElement } from "react";
@@ -25,6 +25,11 @@ if (!SYNCFUSION_LICENSE) {
 
 registerLicense(SYNCFUSION_LICENSE);
 
+export const viewport: Viewport = {
+  initialScale: 0.5,
+  width: "device-width",
+};
+
 export const metadata: Metadata = {
   authors: [{ name: "Gede Dewo Wahyu M.W", url: "https://github.com/gdwmw" }],
   category: "Boilerplate",
@@ -43,6 +48,7 @@ const RootLayout: FC<T> = (props): ReactElement => (
   <html lang="en" suppressHydrationWarning>
     <body
       className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${roboto.variable} font-inter bg-gray-100 antialiased dark:bg-gray-900`}
+      id="dialog-target"
     >
       <NextThemesProvider>
         <ReactQueryProvider>
