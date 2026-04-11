@@ -4,28 +4,55 @@ import { ColumnDirective, ColumnsDirective, GridComponent, Inject, Page, Resize,
 import { ChevronDown, ChevronRight, Ellipsis, FileText } from "lucide-react";
 import { FC, ReactElement, useEffect, useRef, useState } from "react";
 
-import { Button, useFilterLayoutContext } from "@/src/components";
+import { Button, ButtonTWM, useFilterLayoutContext } from "@/src/components";
 import { ORDER_PEMBELIAN_DATA } from "@/src/libs";
 
 import { useLocalContext } from "../../context";
 import { JenisBarang, JenisTrasaksi } from "./batches";
 
+const PRINT_OPTION_DATA = [
+  "Form Surat Order Pembelian Dengan Harga - (PKP)",
+  "Form Surat Order Pembelian Dengan Harga - (NON PKP)",
+  "Form Surat Order Pembelian",
+  "Form PO Barang Produksi (Model 1) - (PKP)",
+  "Form PO Barang Produksi (Model 2) - (PKP)",
+  "Form PO Barang Produksi (Model 3) - (NON PKP)",
+  "Form PO Barang Produksi (Model 4) - (PKP)",
+  "Form PraPP Barang Produksi (Model 2) - (PKP)",
+  "Form PraPP Barang Produksi (Model 3) - (NON PKP)",
+  "Form PraPP Barang Produksi (Model 4) - (PKP)",
+  "Daftar Surat Order Pembelian",
+];
+
 export const Main: FC = (): ReactElement => {
   const { setModal } = useLocalContext();
   const { setIsFilterOpen } = useFilterLayoutContext();
   const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
+  const [isDesktopPrintMenuOpen, setIsDesktopPrintMenuOpen] = useState(false);
+  const [isMorePrintMenuOpen, setIsMorePrintMenuOpen] = useState(false);
   const moreMenuRef = useRef<HTMLDivElement | null>(null);
+  const printMenuRef = useRef<HTMLDivElement | null>(null);
+  const morePrintMenuRef = useRef<HTMLDivElement | null>(null);
 
   const pageSettings = { pageSize: 50, pageSizes: [10, 20, 50, 100, "All"] };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
-      if (!(event.target instanceof Node) || !moreMenuRef.current) {
+      if (!(event.target instanceof Node)) {
         return;
       }
 
-      if (!moreMenuRef.current.contains(event.target)) {
+      if (moreMenuRef.current && !moreMenuRef.current.contains(event.target)) {
         setIsMoreMenuOpen(false);
+        setIsMorePrintMenuOpen(false);
+      }
+
+      if (printMenuRef.current && !printMenuRef.current.contains(event.target)) {
+        setIsDesktopPrintMenuOpen(false);
+      }
+
+      if (morePrintMenuRef.current && !morePrintMenuRef.current.contains(event.target)) {
+        setIsMorePrintMenuOpen(false);
       }
     };
 
@@ -72,7 +99,6 @@ export const Main: FC = (): ReactElement => {
             color="black-blue"
             onClick={() => setIsMoreMenuOpen((prev) => !prev)}
             size="sm"
-            type="button"
             variant="ghost"
           >
             <Ellipsis size={18} />
@@ -80,18 +106,42 @@ export const Main: FC = (): ReactElement => {
 
           {isMoreMenuOpen ? (
             <div className="absolute top-full left-0 z-20 mt-1 min-w-44 rounded-md border bg-white p-1 shadow-lg">
-              <div className="flex flex-col items-stretch gap-1">
-                <Button className="justify-start gap-0" color="blue" size="sm" type="button" variant="ghost">
+              <div className="flex flex-col gap-1">
+                <Button className="justify-start gap-0" color="blue" size="sm" variant="ghost">
                   <ChevronRight size={14} /> Update File
                 </Button>
-                <Button className="justify-start" color="green" size="sm" type="button" variant="ghost">
+                <Button color="green" size="sm" variant="ghost">
                   <FileText size={14} />
                   Acc. DIREKSI
                 </Button>
-                <Button className="justify-start" color="black-blue" size="sm" type="button" variant="ghost">
-                  <ChevronDown size={14} /> Cetak
-                </Button>
-                <Button className="justify-start" color="black-blue" size="sm" type="button" variant="ghost">
+                <div className="relative" ref={morePrintMenuRef}>
+                  <div className={ButtonTWM({ className: "w-full gap-0.5 active:scale-100", color: "black-blue", size: "sm", variant: "ghost" })}>
+                    <button className="cursor-pointer active:scale-95">Cetak</button>
+                    <button
+                      aria-expanded={isMorePrintMenuOpen}
+                      className="cursor-pointer active:scale-95"
+                      onClick={() => setIsMorePrintMenuOpen((prev) => !prev)}
+                    >
+                      <ChevronDown
+                        className={isMorePrintMenuOpen ? "rotate-180 transition-transform duration-100" : "transition-transform duration-100"}
+                        size={14}
+                      />
+                    </button>
+                  </div>
+
+                  {isMorePrintMenuOpen ? (
+                    <div className="absolute top-0 right-full z-30 max-w-87.5 overflow-auto rounded-md border bg-white p-1 shadow-lg">
+                      <div className="flex w-fit flex-col gap-1">
+                        {PRINT_OPTION_DATA.map((item) => (
+                          <Button color="black-blue" key={item} onClick={() => setIsMorePrintMenuOpen(false)} size="sm" variant="ghost">
+                            {item}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+                <Button color="black-blue" size="sm" variant="ghost">
                   Detail Dok
                 </Button>
               </div>
@@ -106,9 +156,33 @@ export const Main: FC = (): ReactElement => {
           <FileText size={14} />
           Acc. DIREKSI
         </Button>
-        <Button className="max-[1090px]:hidden" color="black-blue" size="sm" variant="ghost">
-          <ChevronDown size={14} /> Cetak
-        </Button>
+        <div className="relative max-[1090px]:hidden" ref={printMenuRef}>
+          <div className={ButtonTWM({ className: "gap-0.5 active:scale-100", color: "black-blue", size: "sm", variant: "ghost" })}>
+            <button className="cursor-pointer active:scale-95">Cetak</button>
+            <button
+              aria-expanded={isDesktopPrintMenuOpen}
+              className="cursor-pointer active:scale-95"
+              onClick={() => setIsDesktopPrintMenuOpen((prev) => !prev)}
+            >
+              <ChevronDown
+                className={isDesktopPrintMenuOpen ? "rotate-180 transition-transform duration-100" : "transition-transform duration-100"}
+                size={14}
+              />
+            </button>
+          </div>
+
+          {isDesktopPrintMenuOpen ? (
+            <div className="absolute top-full right-0 z-20 mt-1 min-w-52 rounded-md border bg-white p-1 shadow-lg">
+              <div className="flex flex-col gap-1">
+                {PRINT_OPTION_DATA.map((item) => (
+                  <Button color="black-blue" key={item} onClick={() => setIsDesktopPrintMenuOpen(false)} size="sm" variant="ghost">
+                    {item}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </div>
         <Button className="max-[1090px]:hidden" color="black-blue" size="sm" variant="ghost">
           Detail Dok
         </Button>

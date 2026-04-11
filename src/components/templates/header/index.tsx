@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, ReactElement, useEffect, useRef, useState } from "react";
 
+import { useWindowSize } from "@/src/hooks";
 import { MENU_DATA } from "@/src/libs";
 
 import { Button, ButtonTWM } from "../../elements";
@@ -38,6 +39,8 @@ export const Header: FC = (): ReactElement => {
   const [openMobileSection, setOpenMobileSection] = useState<null | string>(null);
   const [openMobileSubMenu, setOpenMobileSubMenu] = useState<null | string>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const { height: viewportHeight, width: viewportWidth } = useWindowSize();
+  const isCompactHeaderMode = viewportWidth <= 1490 || viewportHeight <= 885;
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
@@ -101,7 +104,7 @@ export const Header: FC = (): ReactElement => {
         <Image alt="NEXT ERP" className="-mb-0.5" height={30} src="/assets/images/logos/NEXT-ERP.png" width={30} />
 
         <div className="relative" ref={menuRef}>
-          <nav className="flex flex-wrap items-center max-[1490px]:hidden">
+          <nav className={isCompactHeaderMode ? "hidden" : "flex flex-wrap items-center"}>
             {MENU_DATA.map((dt, index) => {
               const isOpen = openDesktopMenu === dt.label;
               const isLastDesktopMenu = index === MENU_DATA.length - 1;
@@ -121,7 +124,6 @@ export const Header: FC = (): ReactElement => {
                     color="black-blue"
                     onClick={() => handleOpenDesktopMenu(dt.label)}
                     size="sm"
-                    type="button"
                     variant="ghost"
                   >
                     <dt.icon size={16} />
@@ -146,7 +148,6 @@ export const Header: FC = (): ReactElement => {
                                   className="w-full cursor-default group-hover:bg-blue-50 group-hover:text-blue-600"
                                   color="black-blue"
                                   size="sm"
-                                  type="button"
                                   variant="ghost"
                                 >
                                   <span>{subItemLabel}</span>
@@ -199,7 +200,7 @@ export const Header: FC = (): ReactElement => {
             })}
           </nav>
 
-          <div className="min-[1486px]:hidden">
+          <div className={isCompactHeaderMode ? "block" : "hidden"}>
             <Button
               aria-expanded={isMobileMenuOpen}
               aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -207,7 +208,6 @@ export const Header: FC = (): ReactElement => {
               color="black-blue"
               onClick={handleToggleMobileMenu}
               size="sm"
-              type="button"
               variant="semi"
             >
               {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -227,7 +227,6 @@ export const Header: FC = (): ReactElement => {
                           color="black-blue"
                           onClick={() => handleToggleMobileSection(dt.label)}
                           size="sm"
-                          type="button"
                           variant="ghost"
                         >
                           <span className="flex items-center gap-2">
@@ -255,7 +254,6 @@ export const Header: FC = (): ReactElement => {
                                     color="black-blue"
                                     onClick={() => handleToggleMobileSubMenu(`${dt.label}-${subItemLabel}`)}
                                     size="sm"
-                                    type="button"
                                     variant="ghost"
                                   >
                                     <span>{subItemLabel}</span>
