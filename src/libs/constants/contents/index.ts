@@ -502,7 +502,7 @@ export const MENU_DATA = [
   },
 ];
 
-export const ORDER_PEMBELIAN_DATA = [
+const ORDER_PEMBELIAN_SEED_DATA = [
   {
     beratKg: 4900,
     biayaPengiriman: null,
@@ -602,3 +602,17 @@ export const ORDER_PEMBELIAN_DATA = [
     termin: "Net 1",
   },
 ];
+
+export const ORDER_PEMBELIAN_DATA = Array.from({ length: 100 }, (_, index) => {
+  const seed = ORDER_PEMBELIAN_SEED_DATA[index % ORDER_PEMBELIAN_SEED_DATA.length];
+  const dayOffset = Math.floor(index / ORDER_PEMBELIAN_SEED_DATA.length);
+  const poSequence = (22 + index).toString().padStart(5, "0");
+
+  return {
+    ...seed,
+    estimasiPengiriman: new Date(seed.estimasiPengiriman.getTime() + dayOffset * 24 * 60 * 60 * 1000),
+    nomorPO: `2102.0910.${poSequence}`,
+    tanggal: new Date(seed.tanggal.getTime() + dayOffset * 24 * 60 * 60 * 1000),
+    tanggalBerlaku: new Date(seed.tanggalBerlaku.getTime() + dayOffset * 24 * 60 * 60 * 1000),
+  };
+});
