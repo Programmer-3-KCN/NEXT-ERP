@@ -21,8 +21,8 @@ export const FilterLayoutMain: FC<I> = ({ children, className, ...props }): Reac
 
   return (
     <main className={twm("flex flex-1 flex-col overflow-hidden p-1", className?.container)} {...props}>
-      <h2 className={twm("rounded-t-md bg-gray-500 px-3 py-1 font-semibold text-white", className?.header)}>{activeMenuLabel}</h2>
-      <div className={twm("flex flex-1 flex-col overflow-auto rounded-b-md border border-gray-500 bg-white", className?.content)}>{children}</div>
+      <h2 className={twm("rounded-t-md bg-blue-400 px-3 py-1 font-semibold text-white", className?.header)}>{activeMenuLabel}</h2>
+      <div className={twm("flex flex-1 flex-col overflow-auto rounded-b-md border border-blue-400 bg-white", className?.content)}>{children}</div>
     </main>
   );
 };

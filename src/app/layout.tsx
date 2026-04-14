@@ -1,18 +1,19 @@
 import type { Metadata, Viewport } from "next";
 
 import { registerLicense } from "@syncfusion/ej2-base";
+import "@syncfusion/ej2-base/styles/tailwind3.css";
+import "@syncfusion/ej2-react-buttons/styles/tailwind3.css";
+import "@syncfusion/ej2-react-calendars/styles/tailwind3.css";
+import "@syncfusion/ej2-react-dropdowns/styles/tailwind3.css";
+import "@syncfusion/ej2-react-grids/styles/tailwind3.css";
+import "@syncfusion/ej2-react-inputs/styles/tailwind3.css";
+import "@syncfusion/ej2-react-navigations/styles/tailwind3.css";
+import "@syncfusion/ej2-react-popups/styles/tailwind3.css";
+import "@syncfusion/ej2-react-splitbuttons/styles/tailwind3.css";
 import { FC, PropsWithChildren, ReactElement } from "react";
+import "sweetalert2/dist/sweetalert2.min.css";
 
-import "../../node_modules/@syncfusion/ej2-base/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-buttons/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-calendars/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-dropdowns/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-grids/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-inputs/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-navigations/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-popups/styles/tailwind3.css";
-import "../../node_modules/@syncfusion/ej2-react-splitbuttons/styles/tailwind3.css";
-import { APIConnectionChecker } from "../components";
+import { APIConnectionChecker, ViewportWarning } from "../components";
 import { NextAuthProvider, NextThemesProvider, ReactQueryProvider } from "../libs";
 import { geistMono, geistSans, inter, roboto } from "./fonts";
 import "./globals.css";
@@ -53,6 +54,7 @@ const RootLayout: FC<T> = (props): ReactElement => (
       <NextThemesProvider>
         <ReactQueryProvider>
           <NextAuthProvider>
+            <ViewportWarning />
             {props.children}
             {(process.env.NODE_ENV === "development" || process.env.NEXT_PUBLIC_DEBUG_MODE === "true") && <APIConnectionChecker />}
           </NextAuthProvider>

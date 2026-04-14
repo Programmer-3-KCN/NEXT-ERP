@@ -29,11 +29,11 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
 
     variant === "solid" && color === "black-green" && !disabled && "bg-black text-white hover:bg-green-600",
 
-    variant === "solid" && color === "black" && !disabled && "bg-black text-white dark:bg-white dark:text-black",
+    variant === "solid" && color === "black" && !disabled && "bg-black text-white",
 
-    variant === "solid" && color === "white" && !disabled && "bg-white text-black dark:bg-black dark:text-white",
+    variant === "solid" && color === "white" && !disabled && "bg-white text-black",
 
-    variant === "solid" && color === "gray" && !disabled && "bg-gray-200 text-black dark:bg-gray-500 dark:text-white",
+    variant === "solid" && color === "gray" && !disabled && "bg-gray-200 text-black",
 
     variant === "solid" && disabled && "bg-gray-400 text-white",
 
@@ -53,20 +53,11 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
       !disabled &&
       "border border-green-200 bg-green-50 text-black hover:bg-green-100 hover:text-green-600",
 
-    variant === "semi" &&
-      color === "black" &&
-      !disabled &&
-      "border border-gray-300 bg-gray-50 text-black hover:bg-gray-100 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20",
+    variant === "semi" && color === "black" && !disabled && "border border-gray-300 bg-gray-50 text-black hover:bg-gray-100",
 
-    variant === "semi" &&
-      color === "white" &&
-      !disabled &&
-      "border border-white/80 bg-white/10 text-white hover:bg-white/20 dark:border-black/20 dark:bg-black/5 dark:text-black dark:hover:bg-black/10",
+    variant === "semi" && color === "white" && !disabled && "border border-white/80 bg-white/10 text-white hover:bg-white/20",
 
-    variant === "semi" &&
-      color === "gray" &&
-      !disabled &&
-      "border border-gray-300 bg-gray-100 text-black hover:bg-gray-200 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700",
+    variant === "semi" && color === "gray" && !disabled && "border border-gray-300 bg-gray-100 text-black hover:bg-gray-200",
 
     variant === "semi" && disabled && "border border-gray-300 bg-gray-100 text-gray-400",
 
@@ -104,17 +95,17 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
     variant === "outline" &&
       color === "black" &&
       !disabled &&
-      "bg-transparent text-black ring-1 ring-black ring-inset hover:bg-black hover:text-white dark:text-white dark:ring-white dark:hover:bg-white dark:hover:text-black",
+      "bg-transparent text-black ring-1 ring-black ring-inset hover:bg-black hover:text-white",
 
     variant === "outline" &&
       color === "white" &&
       !disabled &&
-      "bg-transparent text-white ring-1 ring-white ring-inset hover:bg-white hover:text-black dark:text-black dark:ring-black dark:hover:bg-black dark:hover:text-white",
+      "bg-transparent text-white ring-1 ring-white ring-inset hover:bg-white hover:text-black",
 
     variant === "outline" &&
       color === "gray" &&
       !disabled &&
-      "bg-transparent text-gray-200 ring-1 ring-gray-200 ring-inset hover:bg-gray-200 hover:text-black dark:text-gray-500 dark:ring-gray-500 dark:hover:bg-gray-500 dark:hover:text-white",
+      "bg-transparent text-gray-200 ring-1 ring-gray-200 ring-inset hover:bg-gray-200 hover:text-black",
 
     variant === "outline" && disabled && "bg-transparent text-gray-400 ring-1 ring-gray-400 ring-inset",
 
@@ -131,11 +122,11 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
 
     variant === "ghost" && color === "black-green" && !disabled && "text-black hover:bg-green-50 hover:text-green-600",
 
-    variant === "ghost" && color === "black" && !disabled && "text-black hover:bg-gray-100 dark:text-white dark:hover:bg-white/10",
+    variant === "ghost" && color === "black" && !disabled && "text-black hover:bg-gray-100",
 
-    variant === "ghost" && color === "white" && !disabled && "text-white hover:bg-white/10 dark:text-black dark:hover:bg-black/10",
+    variant === "ghost" && color === "white" && !disabled && "text-white hover:bg-white/10",
 
-    variant === "ghost" && color === "gray" && !disabled && "text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800",
+    variant === "ghost" && color === "gray" && !disabled && "text-gray-500 hover:bg-gray-100",
 
     variant === "ghost" && disabled && "text-gray-400",
 
