@@ -12,8 +12,8 @@ import { Button, FieldCell } from "@/src/components";
 import { useLocalContext } from "../../../../context";
 import { DataBarang } from "./batches";
 
-export const Baru: FC = (): ReactElement => {
-  const { modal, modalParameter, setModal } = useLocalContext();
+const Baru: FC = (): ReactElement => {
+  const { modalParameter, setModal } = useLocalContext();
   const [selectedTab, setSelectedTab] = useState<number>(0);
 
   return (
@@ -26,7 +26,7 @@ export const Baru: FC = (): ReactElement => {
       position={{ X: "center", Y: "center" }}
       showCloseIcon={true}
       target="#dialog-target"
-      visible={modal.baru}
+      visible={true}
       width={"98%"}
     >
       <div className="flex size-full max-h-full flex-col gap-1 overflow-hidden">
@@ -189,3 +189,5 @@ export const Baru: FC = (): ReactElement => {
     </DialogComponent>
   );
 };
+
+export default Baru;

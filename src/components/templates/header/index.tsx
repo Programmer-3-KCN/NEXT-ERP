@@ -347,7 +347,7 @@ export const Header: FC = (): ReactElement => {
       </div>
 
       <div className="flex gap-1">
-        <div className="flex items-center gap-3 rounded-md border border-gray-300 bg-blue-50 px-2">
+        <div className="flex items-center gap-3 rounded-md border border-gray-300 bg-blue-50 px-2 py-1">
           <div className="flex size-9 items-center justify-center rounded-full bg-blue-500 text-white">
             <CircleUser size={30} />
           </div>

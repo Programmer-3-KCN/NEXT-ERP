@@ -2,13 +2,16 @@
 
 import { ColumnDirective, ColumnsDirective, GridComponent, Inject, Page, Resize, Sort } from "@syncfusion/ej2-react-grids";
 import { ChevronDown, ChevronRight, Ellipsis, FileText } from "lucide-react";
+import dynamic from "next/dynamic";
 import { FC, ReactElement, useEffect, useRef, useState } from "react";
 
 import { Button, ButtonTWM, useFilterLayoutContext } from "@/src/components";
 import { ORDER_PEMBELIAN_DATA } from "@/src/libs";
 
 import { useLocalContext } from "../../context";
-import { Baru, JenisBarang, JenisTrasaksi } from "./batches";
+import { JenisBarang, JenisTrasaksi } from "./batches";
+
+const Baru = dynamic(() => import("./batches/baru"));
 
 const PRINT_OPTION_DATA = [
   "Form Surat Order Pembelian Dengan Harga - (PKP)",
@@ -25,7 +28,7 @@ const PRINT_OPTION_DATA = [
 ];
 
 export const Main: FC = (): ReactElement => {
-  const { setModal } = useLocalContext();
+  const { modal, setModal } = useLocalContext();
   const { setIsFilterOpen } = useFilterLayoutContext();
   const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
   const [isDesktopPrintMenuOpen, setIsDesktopPrintMenuOpen] = useState(false);
@@ -302,7 +305,7 @@ export const Main: FC = (): ReactElement => {
 
       <JenisTrasaksi />
       <JenisBarang />
-      <Baru />
+      {modal.baru && <Baru />}
     </>
   );
 };
