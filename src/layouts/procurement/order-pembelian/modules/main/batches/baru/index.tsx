@@ -32,7 +32,7 @@ const Baru: FC = (): ReactElement => {
       visible={true}
       width={"98%"}
     >
-      <div className="flex size-full max-h-full flex-col gap-1 overflow-hidden">
+      <div className="flex size-full max-h-full min-h-[700px] flex-col gap-1 overflow-hidden">
         <div className="flex">
           <FieldCell className={{ container: "w-fit max-w-56" }} label="Tanggal">
             <DatePickerComponent format={"dd-MM-yyyy"} showClearButton={false} />
