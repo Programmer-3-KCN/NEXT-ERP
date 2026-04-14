@@ -146,8 +146,6 @@ export const Header: FC = (): ReactElement => {
                   onMouseLeave={canHover ? handleCloseDesktopMenu : undefined}
                 >
                   <Button
-                    aria-expanded={isOpen}
-                    aria-haspopup="menu"
                     className={`cursor-default rounded-md px-3 py-2 ${isOpen ? "bg-blue-50 text-blue-600" : ""}`}
                     color="black-blue"
                     onClick={() => (canHover ? handleOpenDesktopMenu(dt.label) : handleToggleDesktopMenu(dt.label))}
@@ -175,7 +173,6 @@ export const Header: FC = (): ReactElement => {
                             <div className="group relative" key={subItemLabel}>
                               {hasChildren ? (
                                 <Button
-                                  aria-expanded={isDesktopSubMenuOpen}
                                   className={`w-full cursor-default ${canHover ? "group-hover:bg-blue-50 group-hover:text-blue-600" : ""} ${isDesktopSubMenuOpen ? "bg-blue-50 text-blue-600" : ""}`}
                                   color="black-blue"
                                   onClick={() =>
@@ -244,8 +241,6 @@ export const Header: FC = (): ReactElement => {
 
           <div className={isCompactHeaderMode ? "block" : "hidden"}>
             <Button
-              aria-expanded={isMobileMenuOpen}
-              aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               className="min-w-0 rounded-md border border-gray-300 px-3 py-2"
               color="black-blue"
               onClick={handleToggleMobileMenu}
@@ -264,7 +259,6 @@ export const Header: FC = (): ReactElement => {
                     return (
                       <div className="rounded-md border border-gray-200 p-1" key={dt.label}>
                         <Button
-                          aria-expanded={isSectionOpen}
                           className={`w-full justify-between rounded-md px-3 py-2 ${isSectionOpen ? "bg-blue-50 text-blue-600" : ""}`}
                           color="black-blue"
                           onClick={() => handleToggleMobileSection(dt.label)}
@@ -291,7 +285,6 @@ export const Header: FC = (): ReactElement => {
                               return hasChildren ? (
                                 <div className="rounded-md bg-gray-50 p-1" key={subItemLabel}>
                                   <Button
-                                    aria-expanded={isSubMenuOpen}
                                     className={`w-full justify-between rounded-md px-3 py-2 ${isSubMenuOpen ? "bg-blue-50 text-blue-600" : ""}`}
                                     color="black-blue"
                                     onClick={() => handleToggleMobileSubMenu(`${dt.label}-${subItemLabel}`)}

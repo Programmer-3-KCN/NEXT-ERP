@@ -34,13 +34,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   authors: [{ name: "Gede Dewo Wahyu M.W", url: "https://github.com/gdwmw" }],
-  category: "Boilerplate",
+  category: "Enterprise Resource Planning (ERP)",
   creator: "Gede Dewo Wahyu M.W",
   publisher: "Gede Dewo Wahyu M.W",
   referrer: "strict-origin-when-cross-origin",
   title: {
-    default: "Next.js | Home",
-    template: "Next.js | %s",
+    default: "Next ERP | Home",
+    template: "Next ERP | %s",
   },
 };
 

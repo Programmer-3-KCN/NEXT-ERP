@@ -92,15 +92,7 @@ export const Main: FC = (): ReactElement => {
         </Button>
 
         <div className="relative min-[1091px]:hidden" ref={moreMenuRef}>
-          <Button
-            aria-expanded={isMoreMenuOpen}
-            aria-label={isMoreMenuOpen ? "Close more actions menu" : "Open more actions menu"}
-            className="min-w-0 px-2"
-            color="black-blue"
-            onClick={() => setIsMoreMenuOpen((prev) => !prev)}
-            size="sm"
-            variant="ghost"
-          >
+          <Button className="min-w-0 px-2" color="black-blue" onClick={() => setIsMoreMenuOpen((prev) => !prev)} size="sm" variant="ghost">
             <Ellipsis size={18} />
           </Button>
 
@@ -119,11 +111,7 @@ export const Main: FC = (): ReactElement => {
                 <div className="relative" ref={morePrintMenuRef}>
                   <div className={ButtonTWM({ className: "w-full gap-0.5 active:scale-100", color: "black-blue", size: "sm", variant: "ghost" })}>
                     <button className="cursor-pointer active:scale-95">Cetak</button>
-                    <button
-                      aria-expanded={isMorePrintMenuOpen}
-                      className="cursor-pointer active:scale-95"
-                      onClick={() => setIsMorePrintMenuOpen((prev) => !prev)}
-                    >
+                    <button className="cursor-pointer active:scale-95" onClick={() => setIsMorePrintMenuOpen((prev) => !prev)}>
                       <ChevronDown
                         className={isMorePrintMenuOpen ? "rotate-180 transition-transform duration-100" : "transition-transform duration-100"}
                         size={14}
@@ -166,11 +154,7 @@ export const Main: FC = (): ReactElement => {
         <div className="relative max-[1090px]:hidden" ref={printMenuRef}>
           <div className={ButtonTWM({ className: "gap-0.5 active:scale-100", color: "black-blue", size: "sm", variant: "ghost" })}>
             <button className="cursor-pointer active:scale-95">Cetak</button>
-            <button
-              aria-expanded={isDesktopPrintMenuOpen}
-              className="cursor-pointer active:scale-95"
-              onClick={() => setIsDesktopPrintMenuOpen((prev) => !prev)}
-            >
+            <button className="cursor-pointer active:scale-95" onClick={() => setIsDesktopPrintMenuOpen((prev) => !prev)}>
               <ChevronDown
                 className={isDesktopPrintMenuOpen ? "rotate-180 transition-transform duration-100" : "transition-transform duration-100"}
                 size={14}

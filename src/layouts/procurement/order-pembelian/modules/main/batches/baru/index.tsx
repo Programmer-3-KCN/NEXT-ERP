@@ -3,7 +3,7 @@ import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 import { TextAreaComponent, TextBoxComponent } from "@syncfusion/ej2-react-inputs";
 import { DialogComponent } from "@syncfusion/ej2-react-popups";
-import { ArrowBigRight } from "lucide-react";
+import { ArrowBigRight, ArrowRight, Building2, ClipboardList, Eraser, Save, Trash2, X } from "lucide-react";
 import { FC, ReactElement, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
@@ -151,30 +151,37 @@ export const Baru: FC = (): ReactElement => {
 
         <div className="flex justify-end gap-1 font-semibold">
           <Button color="gray" size="sm" variant="solid">
+            <Building2 size={14} />
             Info Supplier
           </Button>
 
           <Button color="gray" size="sm" variant="solid">
+            <ClipboardList size={14} />
             Daftar PP
           </Button>
 
           <Button color="gray" size="sm" variant="solid">
+            <Eraser size={14} />
             Bersihkan
           </Button>
 
           <Button color="gray" size="sm" variant="solid">
+            <Trash2 size={14} />
             Hapus
           </Button>
 
-          <Button color="red" size="sm" variant="solid">
+          <Button color="red" onClick={() => setModal((prev) => ({ ...prev, baru: false }))} size="sm" variant="solid">
+            <X size={14} />
             Batal
           </Button>
 
           <Button color="blue" size="sm" variant="solid">
+            <ArrowRight size={14} />
             Lanjut
           </Button>
 
           <Button color="green" size="sm" variant="solid">
+            <Save size={14} />
             Simpan
           </Button>
         </div>
