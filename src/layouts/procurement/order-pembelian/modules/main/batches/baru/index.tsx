@@ -23,6 +23,9 @@ const Baru: FC = (): ReactElement => {
       header={`Order Pembelian (PO) - BARU [${modalParameter.jenisTransaksi?.toUpperCase()}]`}
       height={"96%"}
       isModal={true}
+      open={(args) => {
+        args.preventFocus = true;
+      }}
       position={{ X: "center", Y: "center" }}
       showCloseIcon={true}
       target="#dialog-target"
