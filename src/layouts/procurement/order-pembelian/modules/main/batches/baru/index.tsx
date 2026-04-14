@@ -101,7 +101,7 @@ export const Baru: FC = (): ReactElement => {
               <DropDownListComponent width="100%" />
             </label>
 
-            <Button className="my-auto h-fit min-h-0 w-full min-w-0 rounded-sm px-2 py-1" color="blue" size="sm" variant="solid">
+            <Button className="my-auto" color="blue" size="sm" variant="solid">
               <ArrowBigRight size={14} />
               Terapkan Semua
             </Button>
@@ -147,6 +147,36 @@ export const Baru: FC = (): ReactElement => {
 
             <span className="text-sm">Total Setelah Pajak</span>
           </div>
+        </div>
+
+        <div className="flex justify-end gap-1 font-semibold">
+          <Button color="gray" size="sm" variant="solid">
+            Info Supplier
+          </Button>
+
+          <Button color="gray" size="sm" variant="solid">
+            Daftar PP
+          </Button>
+
+          <Button color="gray" size="sm" variant="solid">
+            Bersihkan
+          </Button>
+
+          <Button color="gray" size="sm" variant="solid">
+            Hapus
+          </Button>
+
+          <Button color="red" size="sm" variant="solid">
+            Batal
+          </Button>
+
+          <Button color="blue" size="sm" variant="solid">
+            Lanjut
+          </Button>
+
+          <Button color="green" size="sm" variant="solid">
+            Simpan
+          </Button>
         </div>
       </div>
     </DialogComponent>

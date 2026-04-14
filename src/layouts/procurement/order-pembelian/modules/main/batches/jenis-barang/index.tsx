@@ -23,7 +23,7 @@ export const JenisBarang: FC = (): ReactElement => {
       <section className="flex flex-col items-center gap-3">
         <div className="flex flex-col gap-1">
           <Button
-            className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
+            className="w-40"
             color="gray"
             onClick={() => {
               setModal((prev) => ({ ...prev, baru: true, jenisBarang: false }));
@@ -35,7 +35,7 @@ export const JenisBarang: FC = (): ReactElement => {
             Barang Produksi
           </Button>
           <Button
-            className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
+            className="w-40"
             color="gray"
             onClick={() => {
               setModal((prev) => ({ ...prev, baru: true, jenisBarang: false }));
@@ -48,7 +48,7 @@ export const JenisBarang: FC = (): ReactElement => {
           </Button>
         </div>
         <Button
-          className="h-fit min-h-0 w-40 min-w-0 rounded-sm px-2 py-1"
+          className="w-40"
           color="gray"
           onClick={() => {
             setModal((prev) => ({ ...prev, jenisBarang: false }));

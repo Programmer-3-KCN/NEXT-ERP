@@ -13,7 +13,7 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
   twm(
     "flex cursor-pointer items-center gap-1 whitespace-nowrap transition duration-100",
     // ⭐ === BASE === ⭐
-    variant !== "ghost" && "justify-center rounded-md",
+    variant !== "ghost" && "justify-center",
     disabled ? "cursor-not-allowed" : "active:scale-95",
 
     // ⭐ === SOLID === ⭐
@@ -131,18 +131,18 @@ export const ButtonTWM = ({ className, color, disabled, size, variant }: IButton
     variant === "ghost" && disabled && "text-gray-400",
 
     // ⭐ === SIZE === ⭐
-    size === "sm" && variant !== "ghost" && "h-10 min-h-10 min-w-28 px-3 text-sm",
+    size === "sm" && variant !== "ghost" && "rounded-sm px-2 py-1 text-sm",
 
-    size === "md" && variant !== "ghost" && "h-11 min-h-11 min-w-32 px-4 text-base",
+    size === "md" && variant !== "ghost" && "rounded-md px-3 py-2 text-base",
 
-    size === "lg" && variant !== "ghost" && "h-12 min-h-12 min-w-36 px-5 text-lg",
+    size === "lg" && variant !== "ghost" && "rounded-lg px-4 py-3 text-lg",
 
     // ⭐ === GHOST SIZE === ⭐
     size === "sm" && variant === "ghost" && "rounded-sm px-2 py-1 text-sm",
 
-    size === "md" && variant === "ghost" && "rounded-md px-4 py-2 text-base",
+    size === "md" && variant === "ghost" && "rounded-md px-3 py-2 text-base",
 
-    size === "lg" && variant === "ghost" && "rounded-lg px-5 py-3 text-lg",
+    size === "lg" && variant === "ghost" && "rounded-lg px-4 py-3 text-lg",
 
     // ⭐ === CLASSNAME === ⭐
     className,
