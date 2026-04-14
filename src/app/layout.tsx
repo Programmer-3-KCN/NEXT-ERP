@@ -11,6 +11,7 @@ import "@syncfusion/ej2-react-navigations/styles/tailwind3.css";
 import "@syncfusion/ej2-react-popups/styles/tailwind3.css";
 import "@syncfusion/ej2-react-splitbuttons/styles/tailwind3.css";
 import { FC, PropsWithChildren, ReactElement } from "react";
+import "react-tabs/style/react-tabs.css";
 import "sweetalert2/dist/sweetalert2.min.css";
 
 import { APIConnectionChecker, ViewportWarning } from "../components";

@@ -1,6 +1,7 @@
 export * from "./api-connection-checker";
 export * from "./avatar";
 export * from "./change-theme-button";
+export * from "./field-cell";
 export * from "./filter-layout";
 export * from "./form-container";
 export * from "./header";
