@@ -5,6 +5,7 @@
     "": {
       "name": "nextjs",
       "dependencies": {
+        "@fit-screen/react": "^1.0.2",
         "@hookform/resolvers": "^5.2.2",
         "@syncfusion/ej2-base": "^33.1.45",
         "@syncfusion/ej2-react-base": "^33.1.44",
@@ -284,6 +285,8 @@
     "@eslint/object-schema": ["@eslint/object-schema@2.1.7", "", {}, "sha512-VtAOaymWVfZcmZbp6E2mympDIHvyjXs/12LqWYjVw6qjrfF+VK+fyG33kChz3nnK+SU5/NeHOqrTEHS8sXO3OA=="],
 
     "@eslint/plugin-kit": ["@eslint/plugin-kit@0.4.1", "", { "dependencies": { "@eslint/core": "^0.17.0", "levn": "^0.4.1" } }, "sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA=="],
+
+    "@fit-screen/react": ["@fit-screen/react@1.0.2", "", { "peerDependencies": { "react": ">=16.9.0", "react-dom": ">=16.9.0" } }, "sha512-Ay/1AvHe2dpaZr/dzKMDKsThL2V/E8H1pnxikg/JqGxuqvADXDQZKLZqkgGtDpNVFFZfcIJdp3uLDSPUOVQAzQ=="],
 
     "@floating-ui/core": ["@floating-ui/core@1.7.5", "", { "dependencies": { "@floating-ui/utils": "^0.2.11" } }, "sha512-1Ih4WTWyw0+lKyFMcBHGbb5U5FtuHJuujoyyr5zTaWS5EYMeT6Jb2AuDeftsCsEuchO+mM2ij5+q9crhydzLhQ=="],
 

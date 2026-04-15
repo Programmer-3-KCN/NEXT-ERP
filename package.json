@@ -32,6 +32,7 @@
     }
   },
   "dependencies": {
+    "@fit-screen/react": "^1.0.2",
     "@hookform/resolvers": "^5.2.2",
     "@syncfusion/ej2-base": "^33.1.45",
     "@syncfusion/ej2-react-base": "^33.1.44",
